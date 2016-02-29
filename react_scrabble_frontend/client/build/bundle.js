@@ -19716,15 +19716,23 @@
 	'use strict';
 	
 	var React = __webpack_require__(1);
+	var BoardBox = __webpack_require__(163);
+	var TrayBox = __webpack_require__(164);
 	
 	var PlayBox = React.createClass({
 	  displayName: 'PlayBox',
 	
 	  render: function render() {
 	    return React.createElement(
-	      'h3',
+	      'div',
 	      null,
-	      'PlayBox'
+	      React.createElement(
+	        'h3',
+	        null,
+	        'PlayBox'
+	      ),
+	      React.createElement(BoardBox, null),
+	      React.createElement(TrayBox, null)
 	    );
 	  }
 	});
@@ -19752,6 +19760,50 @@
 	});
 	
 	module.exports = ButtonBox;
+
+/***/ },
+/* 163 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var React = __webpack_require__(1);
+	
+	var BoardBox = React.createClass({
+	  displayName: 'BoardBox',
+	
+	  render: function render() {
+	    return React.createElement(
+	      'h4',
+	      null,
+	      'BoardBox'
+	    );
+	  }
+	});
+	
+	module.exports = BoardBox;
+
+/***/ },
+/* 164 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var React = __webpack_require__(1);
+	
+	var TrayBox = React.createClass({
+	  displayName: 'TrayBox',
+	
+	  render: function render() {
+	    return React.createElement(
+	      'h4',
+	      null,
+	      'TrayBox'
+	    );
+	  }
+	});
+	
+	module.exports = TrayBox;
 
 /***/ }
 /******/ ]);
