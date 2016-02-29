@@ -19662,20 +19662,48 @@
 	'use strict';
 	
 	var React = __webpack_require__(1);
+	var ScoreBox = __webpack_require__(160);
 	
 	var GameBox = React.createClass({
 	  displayName: 'GameBox',
 	
 	  render: function render() {
 	    return React.createElement(
-	      'h4',
+	      'div',
 	      null,
-	      'Game Box'
+	      React.createElement(
+	        'h2',
+	        null,
+	        'Game Box'
+	      ),
+	      React.createElement(ScoreBox, null)
 	    );
 	  }
 	});
 	
 	module.exports = GameBox;
+
+/***/ },
+/* 160 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var React = __webpack_require__(1);
+	
+	var ScoreBox = React.createClass({
+	  displayName: 'ScoreBox',
+	
+	  render: function render() {
+	    return React.createElement(
+	      'h3',
+	      null,
+	      'Score Box'
+	    );
+	  }
+	});
+	
+	module.exports = ScoreBox;
 
 /***/ }
 /******/ ]);
