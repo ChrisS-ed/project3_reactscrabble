@@ -19663,6 +19663,8 @@
 	
 	var React = __webpack_require__(1);
 	var ScoreBox = __webpack_require__(160);
+	var PlayBox = __webpack_require__(161);
+	var ButtonBox = __webpack_require__(162);
 	
 	var GameBox = React.createClass({
 	  displayName: 'GameBox',
@@ -19674,9 +19676,11 @@
 	      React.createElement(
 	        'h2',
 	        null,
-	        'Game Box'
+	        'GameBox'
 	      ),
-	      React.createElement(ScoreBox, null)
+	      React.createElement(ScoreBox, null),
+	      React.createElement(PlayBox, null),
+	      React.createElement(ButtonBox, null)
 	    );
 	  }
 	});
@@ -19698,12 +19702,56 @@
 	    return React.createElement(
 	      'h3',
 	      null,
-	      'Score Box'
+	      'ScoreBox'
 	    );
 	  }
 	});
 	
 	module.exports = ScoreBox;
+
+/***/ },
+/* 161 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var React = __webpack_require__(1);
+	
+	var PlayBox = React.createClass({
+	  displayName: 'PlayBox',
+	
+	  render: function render() {
+	    return React.createElement(
+	      'h3',
+	      null,
+	      'PlayBox'
+	    );
+	  }
+	});
+	
+	module.exports = PlayBox;
+
+/***/ },
+/* 162 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var React = __webpack_require__(1);
+	
+	var ButtonBox = React.createClass({
+	  displayName: 'ButtonBox',
+	
+	  render: function render() {
+	    return React.createElement(
+	      'h3',
+	      null,
+	      'ButtonBox'
+	    );
+	  }
+	});
+	
+	module.exports = ButtonBox;
 
 /***/ }
 /******/ ]);
