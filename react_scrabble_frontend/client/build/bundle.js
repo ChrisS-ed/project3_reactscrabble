@@ -48,13 +48,10 @@
 	
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(158);
+	var GameBox = __webpack_require__(159);
 	
 	window.onload = function () {
-	  ReactDOM.render(React.createElement(
-	    'h1',
-	    null,
-	    'Hello, world!'
-	  ), document.getElementById('app'));
+	  ReactDOM.render(React.createElement(GameBox, null), document.getElementById('app'));
 	};
 
 /***/ },
@@ -19657,6 +19654,28 @@
 	
 	module.exports = __webpack_require__(3);
 
+
+/***/ },
+/* 159 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var React = __webpack_require__(1);
+	
+	var GameBox = React.createClass({
+	  displayName: 'GameBox',
+	
+	  render: function render() {
+	    return React.createElement(
+	      'h4',
+	      null,
+	      'Game Box'
+	    );
+	  }
+	});
+	
+	module.exports = GameBox;
 
 /***/ }
 /******/ ]);
