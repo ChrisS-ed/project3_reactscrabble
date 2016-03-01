@@ -19664,7 +19664,7 @@
 	var React = __webpack_require__(1);
 	var ScoreBox = __webpack_require__(160);
 	var PlayBox = __webpack_require__(161);
-	var ButtonBox = __webpack_require__(162);
+	var ButtonBox = __webpack_require__(164);
 	
 	var GameBox = React.createClass({
 	  displayName: 'GameBox',
@@ -19716,8 +19716,8 @@
 	'use strict';
 	
 	var React = __webpack_require__(1);
-	var BoardBox = __webpack_require__(163);
-	var TrayBox = __webpack_require__(164);
+	var BoardBox = __webpack_require__(162);
+	var TrayBox = __webpack_require__(163);
 	
 	var PlayBox = React.createClass({
 	  displayName: 'PlayBox',
@@ -19747,28 +19747,6 @@
 	
 	var React = __webpack_require__(1);
 	
-	var ButtonBox = React.createClass({
-	  displayName: 'ButtonBox',
-	
-	  render: function render() {
-	    return React.createElement(
-	      'h3',
-	      null,
-	      'ButtonBox'
-	    );
-	  }
-	});
-	
-	module.exports = ButtonBox;
-
-/***/ },
-/* 163 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var React = __webpack_require__(1);
-	
 	var BoardBox = React.createClass({
 	  displayName: 'BoardBox',
 	
@@ -19784,7 +19762,7 @@
 	module.exports = BoardBox;
 
 /***/ },
-/* 164 */
+/* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19804,6 +19782,28 @@
 	});
 	
 	module.exports = TrayBox;
+
+/***/ },
+/* 164 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var React = __webpack_require__(1);
+	
+	var ButtonBox = React.createClass({
+	  displayName: 'ButtonBox',
+	
+	  render: function render() {
+	    return React.createElement(
+	      'h3',
+	      null,
+	      'ButtonBox'
+	    );
+	  }
+	});
+	
+	module.exports = ButtonBox;
 
 /***/ }
 /******/ ]);
