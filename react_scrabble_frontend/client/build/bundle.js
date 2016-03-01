@@ -19746,15 +19746,21 @@
 	'use strict';
 	
 	var React = __webpack_require__(1);
+	var Tile = __webpack_require__(165);
 	
 	var BoardBox = React.createClass({
 	  displayName: 'BoardBox',
 	
 	  render: function render() {
 	    return React.createElement(
-	      'h4',
+	      'div',
 	      null,
-	      'BoardBox'
+	      React.createElement(
+	        'h4',
+	        null,
+	        'BoardBox'
+	      ),
+	      React.createElement(Tile, null)
 	    );
 	  }
 	});
@@ -19804,6 +19810,28 @@
 	});
 	
 	module.exports = ButtonBox;
+
+/***/ },
+/* 165 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var React = __webpack_require__(1);
+	
+	var Tile = React.createClass({
+	  displayName: 'Tile',
+	
+	  render: function render() {
+	    return React.createElement(
+	      'span',
+	      null,
+	      'T'
+	    );
+	  }
+	});
+	
+	module.exports = Tile;
 
 /***/ }
 /******/ ]);

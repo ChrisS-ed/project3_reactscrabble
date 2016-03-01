@@ -1,8 +1,14 @@
 var React = require('react');
+var Tile = require('./../Tile.js');
 
 var BoardBox = React.createClass({
   render: function() {
-    return <h4>BoardBox</h4>
+    return (
+      <div>
+        <h4>BoardBox</h4>
+        <Tile/>
+      </div>
+      )
   }
 });
 
