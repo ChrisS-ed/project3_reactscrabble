@@ -19746,8 +19746,7 @@
 	'use strict';
 	
 	var React = __webpack_require__(1);
-	var Tile = __webpack_require__(165);
-	var Square = __webpack_require__(166);
+	var Board = __webpack_require__(167);
 	
 	var BoardBox = React.createClass({
 	  displayName: 'BoardBox',
@@ -19761,11 +19760,7 @@
 	        null,
 	        'BoardBox'
 	      ),
-	      React.createElement(
-	        Square,
-	        null,
-	        React.createElement(Tile, null)
-	      )
+	      React.createElement(Board, null)
 	    );
 	  }
 	});
@@ -19860,6 +19855,35 @@
 	});
 	
 	module.exports = Square;
+
+/***/ },
+/* 167 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var React = __webpack_require__(1);
+	var PropTypes = React.PropTypes;
+	var Square = __webpack_require__(166);
+	var Tile = __webpack_require__(165);
+	
+	var Board = React.createClass({
+	  displayName: 'Board',
+	
+	  render: function render() {
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(
+	        Square,
+	        null,
+	        React.createElement(Tile, null)
+	      )
+	    );
+	  }
+	});
+	
+	module.exports = Board;
 
 /***/ }
 /******/ ]);
