@@ -19852,7 +19852,7 @@
 	  render: function render() {
 	    return React.createElement(
 	      'div',
-	      { style: { backgroundColor: 'green', width: '100%',
+	      { style: { backgroundColor: 'green', border: '2px solid black', width: '100%',
 	          height: '100%' } },
 	      this.props.children
 	    );
