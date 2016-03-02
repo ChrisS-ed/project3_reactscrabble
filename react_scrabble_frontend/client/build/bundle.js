@@ -19664,7 +19664,7 @@
 	var React = __webpack_require__(1);
 	var ScoreBox = __webpack_require__(160);
 	var PlayBox = __webpack_require__(161);
-	var ButtonBox = __webpack_require__(164);
+	var ButtonBox = __webpack_require__(167);
 	
 	var GameBox = React.createClass({
 	  displayName: 'GameBox',
@@ -19717,7 +19717,7 @@
 	
 	var React = __webpack_require__(1);
 	var BoardBox = __webpack_require__(162);
-	var TrayBox = __webpack_require__(163);
+	var TrayBox = __webpack_require__(166);
 	
 	var PlayBox = React.createClass({
 	  displayName: 'PlayBox',
@@ -19746,7 +19746,7 @@
 	'use strict';
 	
 	var React = __webpack_require__(1);
-	var Board = __webpack_require__(167);
+	var Board = __webpack_require__(163);
 	
 	var BoardBox = React.createClass({
 	  displayName: 'BoardBox',
@@ -19774,20 +19774,48 @@
 	'use strict';
 	
 	var React = __webpack_require__(1);
+	var PropTypes = React.PropTypes;
+	var Square = __webpack_require__(164);
+	var Tile = __webpack_require__(165);
 	
-	var TrayBox = React.createClass({
-	  displayName: 'TrayBox',
+	var Board = React.createClass({
+	  displayName: 'Board',
+	
+	
+	  renderSquare: function renderSquare(i) {
+	    return React.createElement(
+	      'div',
+	      { key: i
+	        // size for each square is 100/15
+	        , style: { width: '6.66666667%', height: '6.66666667%' } },
+	      React.createElement(
+	        Square,
+	        null,
+	        React.createElement(Tile, null)
+	      )
+	    );
+	  },
 	
 	  render: function render() {
+	    var squares = [];
+	    // 15 x 15 grid = 225 squares
+	    for (var i = 0; i < 225; i++) {
+	      squares.push(this.renderSquare(i));
+	    }
 	    return React.createElement(
-	      'h4',
-	      null,
-	      'TrayBox'
+	      'div',
+	      { style: {
+	          width: '100%',
+	          height: '100%',
+	          display: 'flex',
+	          flexWrap: 'wrap'
+	        } },
+	      squares
 	    );
 	  }
 	});
 	
-	module.exports = TrayBox;
+	module.exports = Board;
 
 /***/ },
 /* 164 */
@@ -19797,19 +19825,20 @@
 	
 	var React = __webpack_require__(1);
 	
-	var ButtonBox = React.createClass({
-	  displayName: 'ButtonBox',
+	var Square = React.createClass({
+	  displayName: 'Square',
 	
 	  render: function render() {
 	    return React.createElement(
-	      'h3',
-	      null,
-	      'ButtonBox'
+	      'div',
+	      { style: { backgroundColor: 'green', border: '2px solid black', width: '100%',
+	          height: '100%' } },
+	      this.props.children
 	    );
 	  }
 	});
 	
-	module.exports = ButtonBox;
+	module.exports = Square;
 
 /***/ },
 /* 165 */
@@ -19841,20 +19870,19 @@
 	
 	var React = __webpack_require__(1);
 	
-	var Square = React.createClass({
-	  displayName: 'Square',
+	var TrayBox = React.createClass({
+	  displayName: 'TrayBox',
 	
 	  render: function render() {
 	    return React.createElement(
-	      'div',
-	      { style: { backgroundColor: 'green', border: '2px solid black', width: '100%',
-	          height: '100%' } },
-	      this.props.children
+	      'h4',
+	      null,
+	      'TrayBox'
 	    );
 	  }
 	});
 	
-	module.exports = Square;
+	module.exports = TrayBox;
 
 /***/ },
 /* 167 */
@@ -19863,27 +19891,20 @@
 	'use strict';
 	
 	var React = __webpack_require__(1);
-	var PropTypes = React.PropTypes;
-	var Square = __webpack_require__(166);
-	var Tile = __webpack_require__(165);
 	
-	var Board = React.createClass({
-	  displayName: 'Board',
+	var ButtonBox = React.createClass({
+	  displayName: 'ButtonBox',
 	
 	  render: function render() {
 	    return React.createElement(
-	      'div',
+	      'h3',
 	      null,
-	      React.createElement(
-	        Square,
-	        null,
-	        React.createElement(Tile, null)
-	      )
+	      'ButtonBox'
 	    );
 	  }
 	});
 	
-	module.exports = Board;
+	module.exports = ButtonBox;
 
 /***/ }
 /******/ ]);
