@@ -1,7 +1,7 @@
 var React = require('react');
 var PropTypes = React.PropTypes;
-var Square = require('./Square');
-var Tile = require('./Tile');
+var Square = require('./Square.jsx');
+var Tile = require('./Tile.jsx');
 
 var Board = React.createClass({
 

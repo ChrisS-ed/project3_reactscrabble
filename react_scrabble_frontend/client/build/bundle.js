@@ -19746,7 +19746,7 @@
 	'use strict';
 	
 	var React = __webpack_require__(1);
-	var Board = __webpack_require__(163);
+	var Board = __webpack_require__(170);
 	
 	var BoardBox = React.createClass({
 	  displayName: 'BoardBox',
@@ -19768,15 +19768,86 @@
 	module.exports = BoardBox;
 
 /***/ },
-/* 163 */
+/* 163 */,
+/* 164 */,
+/* 165 */,
+/* 166 */,
+/* 167 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var React = __webpack_require__(1);
+	
+	var ButtonBox = React.createClass({
+	  displayName: 'ButtonBox',
+	
+	  render: function render() {
+	    return React.createElement(
+	      'h3',
+	      null,
+	      'ButtonBox'
+	    );
+	  }
+	});
+	
+	module.exports = ButtonBox;
+
+/***/ },
+/* 168 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var React = __webpack_require__(1);
+	var RackSlot = __webpack_require__(173);
+	
+	var RackBox = React.createClass({
+	  displayName: 'RackBox',
+	
+	
+	  renderSlot: function renderSlot(index) {
+	
+	    return React.createElement(
+	      'div',
+	      { key: index
+	        // seven slots
+	        , style: { width: '14%', height: '20px' } },
+	      React.createElement(RackSlot, null)
+	    );
+	  },
+	
+	  render: function render() {
+	    var slots = [];
+	    for (var i = 0; i < 7; i++) {
+	      slots.push(this.renderSlot(i));
+	    }
+	    return React.createElement(
+	      'div',
+	      { style: {
+	          marginTop: '20px',
+	          width: '100%',
+	          height: '100%',
+	          display: 'block-inline'
+	        } },
+	      slots
+	    );
+	  }
+	});
+	
+	module.exports = RackBox;
+
+/***/ },
+/* 169 */,
+/* 170 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	var React = __webpack_require__(1);
 	var PropTypes = React.PropTypes;
-	var Square = __webpack_require__(164);
-	var Tile = __webpack_require__(165);
+	var Square = __webpack_require__(171);
+	var Tile = __webpack_require__(172);
 	
 	var Board = React.createClass({
 	  displayName: 'Board',
@@ -19826,7 +19897,7 @@
 	module.exports = Board;
 
 /***/ },
-/* 164 */
+/* 171 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19852,7 +19923,7 @@
 	module.exports = Square;
 
 /***/ },
-/* 165 */
+/* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19881,89 +19952,7 @@
 	module.exports = Tile;
 
 /***/ },
-/* 166 */,
-/* 167 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var React = __webpack_require__(1);
-	
-	var ButtonBox = React.createClass({
-	  displayName: 'ButtonBox',
-	
-	  render: function render() {
-	    return React.createElement(
-	      'h3',
-	      null,
-	      'ButtonBox'
-	    );
-	  }
-	});
-	
-	module.exports = ButtonBox;
-
-/***/ },
-/* 168 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var React = __webpack_require__(1);
-	var RackSlot = __webpack_require__(169);
-	
-	// var RackBox = React.createClass({
-	//   render: function() {
-	
-	//     return (<div style={
-	//       { backgroundColor: 'yellow',
-	//         width: '100%',
-	//         minHeight: '20px' }
-	//       }>
-	//       <h4>RackBox</h4>
-	//       <RackSlot/>   
-	//       </div>
-	//     );
-	//   }
-	// });
-	
-	var RackBox = React.createClass({
-	  displayName: 'RackBox',
-	
-	
-	  renderSlot: function renderSlot(index) {
-	
-	    return React.createElement(
-	      'div',
-	      { key: index
-	        // seven slots
-	        , style: { width: '14%', height: '20px' } },
-	      React.createElement(RackSlot, null)
-	    );
-	  },
-	
-	  render: function render() {
-	    var slots = [];
-	    for (var i = 0; i < 7; i++) {
-	      slots.push(this.renderSlot(i));
-	    }
-	    return React.createElement(
-	      'div',
-	      { style: {
-	          marginTop: '20px',
-	          width: '100%',
-	          height: '100%',
-	          display: 'block-inline'
-	        } },
-	      slots
-	    );
-	  }
-	});
-	
-	module.exports = RackBox;
-
-/***/ },
-/* 169 */
+/* 173 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

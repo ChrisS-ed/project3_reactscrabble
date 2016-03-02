@@ -1,20 +1,5 @@
 var React = require('react');
-var RackSlot = require('./../RackSlot');
-
-// var RackBox = React.createClass({
-//   render: function() {
-    
-//     return (<div style={
-//       { backgroundColor: 'yellow',
-//         width: '100%',
-//         minHeight: '20px' }
-//       }> 
-//       <h4>RackBox</h4>
-//       <RackSlot/>    
-//       </div>
-//     );
-//   }
-// });
+var RackSlot = require('./../RackSlot.jsx');
 
 var RackBox = React.createClass({
 
