@@ -29,7 +29,7 @@ var Board = React.createClass({
     var index = 0;
     for (var i = 0; i < 15; i++) {
       for (var j = 0; j < 15; j++) {
-      squares.push(this.renderSquare(i,j, index));
+      squares.push(this.renderSquare(i,j,index));
       index++;
       };
     }

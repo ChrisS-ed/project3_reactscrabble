@@ -1,6 +1,6 @@
 var React = require('react');
 var BoardBox = require('./BoardBox.jsx');
-var TrayBox = require('./TrayBox.jsx');
+var RackBox = require('./RackBox.jsx');
 
 var PlayBox = React.createClass({
   render: function() {
@@ -8,7 +8,7 @@ var PlayBox = React.createClass({
       <div>
         <h3>PlayBox</h3>
         <BoardBox/>
-        <TrayBox/>
+        <RackBox/>
       </div>
       )
   }

@@ -19717,7 +19717,7 @@
 	
 	var React = __webpack_require__(1);
 	var BoardBox = __webpack_require__(162);
-	var TrayBox = __webpack_require__(166);
+	var RackBox = __webpack_require__(168);
 	
 	var PlayBox = React.createClass({
 	  displayName: 'PlayBox',
@@ -19732,7 +19732,7 @@
 	        'PlayBox'
 	      ),
 	      React.createElement(BoardBox, null),
-	      React.createElement(TrayBox, null)
+	      React.createElement(RackBox, null)
 	    );
 	  }
 	});
@@ -19881,28 +19881,7 @@
 	module.exports = Tile;
 
 /***/ },
-/* 166 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var React = __webpack_require__(1);
-	
-	var TrayBox = React.createClass({
-	  displayName: 'TrayBox',
-	
-	  render: function render() {
-	    return React.createElement(
-	      'h4',
-	      null,
-	      'TrayBox'
-	    );
-	  }
-	});
-	
-	module.exports = TrayBox;
-
-/***/ },
+/* 166 */,
 /* 167 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -19923,6 +19902,86 @@
 	});
 	
 	module.exports = ButtonBox;
+
+/***/ },
+/* 168 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var React = __webpack_require__(1);
+	var RackSlot = __webpack_require__(169);
+	
+	// var RackBox = React.createClass({
+	//   render: function() {
+	
+	//     return (<div style={
+	//       { backgroundColor: 'yellow',
+	//         width: '100%',
+	//         minHeight: '20px' }
+	//       }>
+	//       <h4>RackBox</h4>
+	//       <RackSlot/>   
+	//       </div>
+	//     );
+	//   }
+	// });
+	
+	var RackBox = React.createClass({
+	  displayName: 'RackBox',
+	
+	
+	  renderSlot: function renderSlot(index) {
+	
+	    return React.createElement(
+	      'div',
+	      { key: index
+	        // seven slots
+	        , style: { width: '14%', height: '20px' } },
+	      React.createElement(RackSlot, null)
+	    );
+	  },
+	
+	  render: function render() {
+	    var slots = [];
+	    for (var i = 0; i < 7; i++) {
+	      slots.push(this.renderSlot(i));
+	    }
+	    return React.createElement(
+	      'div',
+	      { style: {
+	          marginTop: '20px',
+	          width: '100%',
+	          height: '100%',
+	          display: 'block-inline'
+	        } },
+	      slots
+	    );
+	  }
+	});
+	
+	module.exports = RackBox;
+
+/***/ },
+/* 169 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var React = __webpack_require__(1);
+	
+	var RackSlot = React.createClass({
+	  displayName: 'RackSlot',
+	
+	  render: function render() {
+	    return React.createElement('div', { style: { backgroundColor: 'brown',
+	        border: '2px solid black',
+	        width: '100%',
+	        minHeight: '20px' } });
+	  }
+	});
+	
+	module.exports = RackSlot;
 
 /***/ }
 /******/ ]);
