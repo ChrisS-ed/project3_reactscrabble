@@ -19760,7 +19760,7 @@
 	        null,
 	        'BoardBox'
 	      ),
-	      React.createElement(Board, null)
+	      React.createElement(Board, { tilePosition: [2, 2] })
 	    );
 	  }
 	});
@@ -19778,44 +19778,15 @@
 	var Square = __webpack_require__(164);
 	var Tile = __webpack_require__(165);
 	
-	// var Board = React.createClass({
-	
-	//   renderSquare: function (i) {
-	//     return (
-	//       <div key={i}
-	//       // size for each square is 100/15
-	//       style={{ width: '6.66666667%', height: '6.66666667%' }}>
-	//       <Square>
-	//       <Tile/>
-	//       </Square>
-	//       </div>
-	//     );
-	//   },
-	
-	//   render: function () {
-	//     var squares = [];
-	//     // 15 x 15 grid = 225 squares
-	//     for (var i = 0; i < 225; i++) {
-	//       squares.push(this.renderSquare(i));
-	//     }
-	//     return (
-	//       <div style={{
-	//         width: '100%',
-	//         height: '100%',
-	//         display: 'flex',
-	//         flexWrap: 'wrap'
-	//       }}>
-	//       {squares}
-	//       </div>
-	//     );
-	//   }
-	// });
-	
 	var Board = React.createClass({
 	  displayName: 'Board',
 	
 	
 	  renderSquare: function renderSquare(x, y, index) {
+	    var tileX = this.props.tilePosition[0];
+	    var tileY = this.props.tilePosition[1];
+	    var squareContents = x === tileX && y === tileY ? React.createElement(Tile, null) : " ";
+	
 	    return React.createElement(
 	      'div',
 	      { key: index
@@ -19824,14 +19795,14 @@
 	      React.createElement(
 	        Square,
 	        null,
-	        React.createElement(Tile, null)
+	        squareContents
 	      )
 	    );
 	  },
 	
 	  render: function render() {
 	    var squares = [];
-	    // 15 x 15 grid = 225 squares
+	    // 15 x 15 grid
 	    var index = 0;
 	    for (var i = 0; i < 15; i++) {
 	      for (var j = 0; j < 15; j++) {
@@ -19868,8 +19839,11 @@
 	  render: function render() {
 	    return React.createElement(
 	      'div',
-	      { style: { backgroundColor: 'green', border: '2px solid black', width: '100%',
-	          height: '100%' } },
+	      { style: { backgroundColor: 'green',
+	          color: 'white',
+	          border: '2px solid black',
+	          width: '100%',
+	          minHeight: '20px' } },
 	      this.props.children
 	    );
 	  }
@@ -19890,9 +19864,16 @@
 	
 	  render: function render() {
 	    return React.createElement(
-	      'span',
-	      null,
-	      'T'
+	      'div',
+	      { style: { backgroundColor: 'red',
+	          color: 'white',
+	          width: '50%',
+	          height: '50%' } },
+	      React.createElement(
+	        'span',
+	        null,
+	        'T'
+	      )
 	    );
 	  }
 	});

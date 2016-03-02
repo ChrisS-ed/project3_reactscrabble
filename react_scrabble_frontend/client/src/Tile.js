@@ -2,7 +2,15 @@ var React = require('react');
 
 var Tile = React.createClass({
   render: function () {
-    return <span>T</span>;
+    return (<div style={
+      { backgroundColor: 'red',
+        color: 'white', 
+        width: '50%',
+        height: '50%' }
+      }> 
+      <span>T</span>
+    </div>
+    );
   }
 });
 
