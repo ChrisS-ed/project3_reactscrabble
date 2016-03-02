@@ -19746,7 +19746,7 @@
 	'use strict';
 	
 	var React = __webpack_require__(1);
-	var Board = __webpack_require__(170);
+	var Board = __webpack_require__(174);
 	
 	var BoardBox = React.createClass({
 	  displayName: 'BoardBox',
@@ -19800,7 +19800,7 @@
 	'use strict';
 	
 	var React = __webpack_require__(1);
-	var RackSlot = __webpack_require__(173);
+	var RackSlot = __webpack_require__(177);
 	
 	var RackBox = React.createClass({
 	  displayName: 'RackBox',
@@ -19839,15 +19839,19 @@
 
 /***/ },
 /* 169 */,
-/* 170 */
+/* 170 */,
+/* 171 */,
+/* 172 */,
+/* 173 */,
+/* 174 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	var React = __webpack_require__(1);
 	var PropTypes = React.PropTypes;
-	var Square = __webpack_require__(171);
-	var Tile = __webpack_require__(172);
+	var Square = __webpack_require__(175);
+	var Tile = __webpack_require__(176);
 	
 	var Board = React.createClass({
 	  displayName: 'Board',
@@ -19897,7 +19901,7 @@
 	module.exports = Board;
 
 /***/ },
-/* 171 */
+/* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19923,7 +19927,7 @@
 	module.exports = Square;
 
 /***/ },
-/* 172 */
+/* 176 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19952,7 +19956,7 @@
 	module.exports = Tile;
 
 /***/ },
-/* 173 */
+/* 177 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

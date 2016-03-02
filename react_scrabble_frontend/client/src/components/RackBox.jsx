@@ -1,5 +1,5 @@
 var React = require('react');
-var RackSlot = require('./../RackSlot.jsx');
+var RackSlot = require('./RackSlot.jsx');
 
 var RackBox = React.createClass({
 
