@@ -4,7 +4,6 @@ var RackSlot = require('./RackSlot.jsx');
 var RackBox = React.createClass({
 
   renderSlot: function (index) {
-    
     return (
       <div key={index}
         // seven slots

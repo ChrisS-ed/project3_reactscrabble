@@ -4,6 +4,14 @@ var PlayBox = require('./PlayBox.jsx');
 var ButtonBox = require('./ButtonBox.jsx');
 
 var GameBox = React.createClass({
+
+  // place seven letters from bag on rack
+  // getInitialState: function(){
+  //     return {
+        
+  //     }
+  //   },
+
   render: function() {
     return (
     <div>

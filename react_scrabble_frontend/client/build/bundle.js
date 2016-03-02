@@ -19669,6 +19669,14 @@
 	var GameBox = React.createClass({
 	  displayName: 'GameBox',
 	
+	
+	  // place seven letters from bag on rack
+	  // getInitialState: function(){
+	  //     return {
+	
+	  //     }
+	  //   },
+	
 	  render: function render() {
 	    return React.createElement(
 	      'div',
@@ -19807,7 +19815,6 @@
 	
 	
 	  renderSlot: function renderSlot(index) {
-	
 	    return React.createElement(
 	      'div',
 	      { key: index
@@ -19860,7 +19867,7 @@
 	  renderSquare: function renderSquare(x, y, index) {
 	    var tileX = this.props.tilePosition[0];
 	    var tileY = this.props.tilePosition[1];
-	    var squareContents = x === tileX && y === tileY ? React.createElement(Tile, null) : " ";
+	    var squareContents = x === tileX && y === tileY ? React.createElement(Tile, null) : null;
 	
 	    return React.createElement(
 	      'div',

@@ -10,7 +10,7 @@ var Board = React.createClass({
     var tileY = this.props.tilePosition[1];
     var squareContents = (x === tileX && y === tileY) ?
         <Tile/> :
-        " ";
+        null;
 
     return (
       <div key={index}
