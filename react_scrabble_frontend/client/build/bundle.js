@@ -19672,12 +19672,13 @@
 	
 	
 	  //place seven letters from bag on rack
-	  // getInitialState: function(){
-	  //     var rackTiles = grabTiles(7);
-	  //     return {
-	  //       racktiles
-	  //     }
-	  //   },
+	  getInitialState: function getInitialState() {
+	    var bag = new Bag();
+	    var rackTiles = bag.grabTiles(bag.contents, 7);
+	    return {
+	      rackTiles: rackTiles
+	    };
+	  },
 	
 	  render: function render() {
 	    return React.createElement(
@@ -19695,12 +19696,12 @@
 	  }
 	});
 	
-	var bag = new Bag();
-	console.log(bag.contents);
-	var test = bag.grabTiles(bag.contents, 7);
-	console.log("New bag", bag.contents, bag.contents.length);
-	
-	console.log("IN GAMEBOX:", bag.contents, bag.contents.length);
+	// var bag = new Bag();
+	// console.log(bag.contents);
+	// var firstTiles = bag.grabTiles(bag.contents, 7);
+	// console.log("firstTiles", firstTiles);
+	//console.log("New bag", bag.contents, bag.contents.length);
+	//console.log("IN GAMEBOX:", bag.contents, bag.contents.length);
 	
 	module.exports = GameBox;
 
