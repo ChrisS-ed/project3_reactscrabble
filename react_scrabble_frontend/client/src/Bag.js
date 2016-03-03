@@ -42,21 +42,36 @@ var shuffle = function(array) {
   return array;
 }
 
-var grabTiles = function(bag, tilesWanted) {
-  var lettersGrabbed = [];
-  for (var i = 0; i < tilesWanted; i++) {
-    var newLetter = bag.shift();
-    console.log(newLetter);
-    lettersGrabbed.push(newLetter);
-  };
-  return lettersGrabbed;
+// var grabTiles = function(bag, tilesWanted) {
+//   var lettersGrabbed = [];
+//   for (var i = 0; i < tilesWanted; i++) {
+//     var newLetter = bag.shift();
+//     console.log(newLetter);
+//     lettersGrabbed.push(newLetter);
+//   };
+//   return lettersGrabbed;
+// }
+
+var Bag = function() {
+  this.contents = shuffle(englishLetters);
 }
 
-// var bag = shuffle(englishLetters);
-// console.log(bag, bag.length);
-// var test = grabTiles(bag, 7);
-// console.log("Letters grabbed", test, test.length);
-// console.log("New bag", bag, bag.length);
+Bag.prototype = {
+  grabTiles: function(contents, tilesWanted) {
+    var lettersGrabbed = [];
+    for (var i = 0; i < tilesWanted; i++) {
+      var newLetter = contents.shift();
+      console.log(newLetter);
+      lettersGrabbed.push(newLetter);
+    };
+    return lettersGrabbed;
+  }
+}
 
-module.exports = bag;
+// var bag = new Bag();
+// console.log(bag.contents);
+// var test = bag.grabTiles(bag.contents, 7);
+// console.log("New bag", bag.contents, bag.contents.length);
+
+module.exports = Bag;
 
