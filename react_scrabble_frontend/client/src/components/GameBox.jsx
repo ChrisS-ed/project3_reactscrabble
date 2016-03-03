@@ -6,14 +6,14 @@ var Bag = require('./../Bag.js');
 
 var GameBox = React.createClass({
 
-  //place seven letters from bag on rack
+  //get seven letters from bag for initial rack
   getInitialState: function(){
     var bag = new Bag();
     var rackTiles = bag.grabTiles(bag.contents, 7);
-      return {
-        rackTiles
-      }
-    },
+    return {
+      rackTiles
+    }
+  },
 
   render: function() {
     return (
