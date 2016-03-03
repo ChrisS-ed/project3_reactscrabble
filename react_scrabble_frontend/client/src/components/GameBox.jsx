@@ -5,10 +5,11 @@ var ButtonBox = require('./ButtonBox.jsx');
 
 var GameBox = React.createClass({
 
-  // place seven letters from bag on rack
+  //place seven letters from bag on rack
   // getInitialState: function(){
+  //     var rackTiles = grabTiles(7);
   //     return {
-        
+  //       racktiles
   //     }
   //   },
 

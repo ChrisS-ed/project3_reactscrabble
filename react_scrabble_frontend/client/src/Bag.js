@@ -2,7 +2,7 @@
 
 // NEED TO ADD TWO BLANK TILES LATER
 
-englishLetters = [
+var englishLetters = [
 "A", "A", "A", "A", "A", "A", "A", "A", "A",
 "B", "B", "B",
 "C", "C",
@@ -42,7 +42,21 @@ var shuffle = function(array) {
   return array;
 }
 
-var Bag = shuffle(englishLetters);
+var grabTiles = function(bag, tilesWanted) {
+  var lettersGrabbed = [];
+  for (var i = 0; i < tilesWanted; i++) {
+    var newLetter = bag.shift();
+    console.log(newLetter);
+    lettersGrabbed.push(newLetter);
+  };
+  return lettersGrabbed;
+}
 
-module.exports = Bag;
+// var bag = shuffle(englishLetters);
+// console.log(bag, bag.length);
+// var test = grabTiles(bag, 7);
+// console.log("Letters grabbed", test, test.length);
+// console.log("New bag", bag, bag.length);
+
+module.exports = bag;
 

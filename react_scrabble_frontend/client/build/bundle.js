@@ -19664,16 +19664,17 @@
 	var React = __webpack_require__(1);
 	var ScoreBox = __webpack_require__(160);
 	var PlayBox = __webpack_require__(161);
-	var ButtonBox = __webpack_require__(167);
+	var ButtonBox = __webpack_require__(168);
 	
 	var GameBox = React.createClass({
 	  displayName: 'GameBox',
 	
 	
-	  // place seven letters from bag on rack
+	  //place seven letters from bag on rack
 	  // getInitialState: function(){
+	  //     var rackTiles = grabTiles(7);
 	  //     return {
-	
+	  //       racktiles
 	  //     }
 	  //   },
 	
@@ -19725,7 +19726,7 @@
 	
 	var React = __webpack_require__(1);
 	var BoardBox = __webpack_require__(162);
-	var RackBox = __webpack_require__(168);
+	var RackBox = __webpack_require__(166);
 	
 	var PlayBox = React.createClass({
 	  displayName: 'PlayBox',
@@ -19754,7 +19755,7 @@
 	'use strict';
 	
 	var React = __webpack_require__(1);
-	var Board = __webpack_require__(174);
+	var Board = __webpack_require__(163);
 	
 	var BoardBox = React.createClass({
 	  displayName: 'BoardBox',
@@ -19776,89 +19777,15 @@
 	module.exports = BoardBox;
 
 /***/ },
-/* 163 */,
-/* 164 */,
-/* 165 */,
-/* 166 */,
-/* 167 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var React = __webpack_require__(1);
-	
-	var ButtonBox = React.createClass({
-	  displayName: 'ButtonBox',
-	
-	  render: function render() {
-	    return React.createElement(
-	      'h3',
-	      null,
-	      'ButtonBox'
-	    );
-	  }
-	});
-	
-	module.exports = ButtonBox;
-
-/***/ },
-/* 168 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var React = __webpack_require__(1);
-	var RackSlot = __webpack_require__(177);
-	
-	var RackBox = React.createClass({
-	  displayName: 'RackBox',
-	
-	
-	  renderSlot: function renderSlot(index) {
-	    return React.createElement(
-	      'div',
-	      { key: index
-	        // seven slots
-	        , style: { width: '14%', height: '20px' } },
-	      React.createElement(RackSlot, null)
-	    );
-	  },
-	
-	  render: function render() {
-	    var slots = [];
-	    for (var i = 0; i < 7; i++) {
-	      slots.push(this.renderSlot(i));
-	    }
-	    return React.createElement(
-	      'div',
-	      { style: {
-	          marginTop: '20px',
-	          width: '100%',
-	          height: '100%',
-	          display: 'block-inline'
-	        } },
-	      slots
-	    );
-	  }
-	});
-	
-	module.exports = RackBox;
-
-/***/ },
-/* 169 */,
-/* 170 */,
-/* 171 */,
-/* 172 */,
-/* 173 */,
-/* 174 */
+/* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	var React = __webpack_require__(1);
 	var PropTypes = React.PropTypes;
-	var Square = __webpack_require__(175);
-	var Tile = __webpack_require__(176);
+	var Square = __webpack_require__(164);
+	var Tile = __webpack_require__(165);
 	
 	var Board = React.createClass({
 	  displayName: 'Board',
@@ -19908,7 +19835,7 @@
 	module.exports = Board;
 
 /***/ },
-/* 175 */
+/* 164 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19934,7 +19861,7 @@
 	module.exports = Square;
 
 /***/ },
-/* 176 */
+/* 165 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19963,7 +19890,50 @@
 	module.exports = Tile;
 
 /***/ },
-/* 177 */
+/* 166 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var React = __webpack_require__(1);
+	var RackSlot = __webpack_require__(167);
+	
+	var RackBox = React.createClass({
+	  displayName: 'RackBox',
+	
+	
+	  renderSlot: function renderSlot(index) {
+	    return React.createElement(
+	      'div',
+	      { key: index
+	        // seven slots
+	        , style: { width: '14%', height: '20px' } },
+	      React.createElement(RackSlot, null)
+	    );
+	  },
+	
+	  render: function render() {
+	    var slots = [];
+	    for (var i = 0; i < 7; i++) {
+	      slots.push(this.renderSlot(i));
+	    }
+	    return React.createElement(
+	      'div',
+	      { style: {
+	          marginTop: '20px',
+	          width: '100%',
+	          height: '100%',
+	          display: 'block-inline'
+	        } },
+	      slots
+	    );
+	  }
+	});
+	
+	module.exports = RackBox;
+
+/***/ },
+/* 167 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19982,6 +19952,28 @@
 	});
 	
 	module.exports = RackSlot;
+
+/***/ },
+/* 168 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var React = __webpack_require__(1);
+	
+	var ButtonBox = React.createClass({
+	  displayName: 'ButtonBox',
+	
+	  render: function render() {
+	    return React.createElement(
+	      'h3',
+	      null,
+	      'ButtonBox'
+	    );
+	  }
+	});
+	
+	module.exports = ButtonBox;
 
 /***/ }
 /******/ ]);
