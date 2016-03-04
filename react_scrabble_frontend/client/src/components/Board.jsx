@@ -1,5 +1,5 @@
 var React = require('react');
-var PropTypes = React.PropTypes;
+// var PropTypes = React.PropTypes;
 var Square = require('./Square.jsx');
 var Tile = require('./Tile.jsx');
 

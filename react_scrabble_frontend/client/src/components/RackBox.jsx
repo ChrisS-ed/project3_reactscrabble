@@ -1,14 +1,23 @@
 var React = require('react');
 var RackSlot = require('./RackSlot.jsx');
+var Tile = require('./Tile.jsx');
 
 var RackBox = React.createClass({
 
-  renderSlot: function (index) {
+  renderSlot: function(index) {
+    var tileX = this.props.tilePosition[0];
+    var tileY = this.props.tilePosition[1];
+    var slotContents = (tileX === 16 && tileY === index) ?
+        <Tile/> :
+        null;
+
     return (
       <div key={index}
         // seven slots
         style={{ width: '14%', height: '20px' }}>
-        <RackSlot/>
+        <RackSlot>
+          {slotContents}
+        </RackSlot>
       </div>
     );
   },

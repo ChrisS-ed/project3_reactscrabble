@@ -9,6 +9,7 @@ var RackSlot = React.createClass({
           width: '100%',
           minHeight: '20px' }
         }> 
+        {this.props.children}
       </div>
     );
   }
