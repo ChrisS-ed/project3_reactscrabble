@@ -8,7 +8,7 @@ var PlayBox = React.createClass({
       <div>
         <h3>PlayBox</h3>
         <BoardBox/>
-        <RackBox tilePosition={[16, 2]}/>
+        <RackBox tilePosition={[16, 2, "X"]}/>
       </div>
       )
   }

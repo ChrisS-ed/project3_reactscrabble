@@ -8,8 +8,9 @@ var Board = React.createClass({
   renderSquare: function (x,y,index) {
     var tileX = this.props.tilePosition[0];
     var tileY = this.props.tilePosition[1];
+    var tileLetter = this.props.tilePosition[2];
     var squareContents = (x === tileX && y === tileY) ?
-        <Tile/> :
+        <Tile data = {tileLetter}/> :
         null;
 
     return (

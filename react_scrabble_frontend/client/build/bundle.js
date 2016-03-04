@@ -19750,7 +19750,7 @@
 	        'PlayBox'
 	      ),
 	      React.createElement(BoardBox, null),
-	      React.createElement(RackBox, { tilePosition: [16, 2] })
+	      React.createElement(RackBox, { tilePosition: [16, 2, "X"] })
 	    );
 	  }
 	});
@@ -19778,7 +19778,7 @@
 	        null,
 	        'BoardBox'
 	      ),
-	      React.createElement(Board, { tilePosition: [2, 2] })
+	      React.createElement(Board, { tilePosition: [2, 2, "A"] })
 	    );
 	  }
 	});
@@ -19803,7 +19803,8 @@
 	  renderSquare: function renderSquare(x, y, index) {
 	    var tileX = this.props.tilePosition[0];
 	    var tileY = this.props.tilePosition[1];
-	    var squareContents = x === tileX && y === tileY ? React.createElement(Tile, null) : null;
+	    var tileLetter = this.props.tilePosition[2];
+	    var squareContents = x === tileX && y === tileY ? React.createElement(Tile, { data: tileLetter }) : null;
 	
 	    return React.createElement(
 	      'div',
@@ -19880,7 +19881,9 @@
 	var Tile = React.createClass({
 	  displayName: 'Tile',
 	
+	
 	  render: function render() {
+	    var letter = this.props.data;
 	    return React.createElement(
 	      'div',
 	      { style: { backgroundColor: 'red',
@@ -19890,7 +19893,7 @@
 	      React.createElement(
 	        'span',
 	        null,
-	        'T'
+	        letter
 	      )
 	    );
 	  }
@@ -19915,7 +19918,8 @@
 	  renderSlot: function renderSlot(index) {
 	    var tileX = this.props.tilePosition[0];
 	    var tileY = this.props.tilePosition[1];
-	    var slotContents = tileX === 16 && tileY === index ? React.createElement(Tile, null) : null;
+	    var tileLetter = this.props.tilePosition[2];
+	    var slotContents = tileX === 16 && tileY === index ? React.createElement(Tile, { data: tileLetter }) : null;
 	
 	    return React.createElement(
 	      'div',

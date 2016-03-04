@@ -6,7 +6,7 @@ var BoardBox = React.createClass({
     return (
       <div>
         <h4>BoardBox</h4>
-        <Board tilePosition={[2, 2]}/>
+        <Board tilePosition={[2, 2, "A"]}/>
       </div>
       )
   }
