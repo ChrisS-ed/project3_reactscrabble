@@ -29,15 +29,17 @@ var englishLetters = [
 "Z" 
 ];
 
-// var bag = new Bag();
-// console.log(bag.contents, bag.contents.length);
-// console.log(englishLetters, englishLetters.length);
-
 describe('bag', function(){
   it('should initially contain all available Scrabble letters', function(){
     var bag = new Bag();
     bag.contents.sort();
     assert.deepEqual(bag.contents, englishLetters);
   });
-})
 
+  it('should have letters removed from it after letters taken by player', function(){
+    var bag = new Bag();
+    originalBagSize = bag.contents.length;
+    bag.grabTiles(5);
+    assert.equal(bag.contents.length, originalBagSize - 5);
+  });
+})

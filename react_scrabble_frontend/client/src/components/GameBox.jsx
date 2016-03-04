@@ -9,7 +9,7 @@ var GameBox = React.createClass({
   //get seven letters from bag for initial rack
   getInitialState: function(){
     var bag = new Bag();
-    var rackTiles = bag.grabTiles(bag.contents, 7);
+    var rackTiles = bag.grabTiles(7);
     return {
       rackTiles
     }

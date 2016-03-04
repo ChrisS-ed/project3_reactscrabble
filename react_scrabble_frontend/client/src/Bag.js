@@ -56,11 +56,23 @@ var Bag = function() {
   this.contents = shuffle(englishLetters);
 }
 
+// Bag.prototype = {
+//   grabTiles: function(contents, tilesWanted) {
+//     var lettersGrabbed = [];
+//     for (var i = 0; i < tilesWanted; i++) {
+//       var newLetter = contents.shift();
+//       console.log(newLetter);
+//       lettersGrabbed.push(newLetter);
+//     };
+//     return lettersGrabbed;
+//   }
+// }
+
 Bag.prototype = {
-  grabTiles: function(contents, tilesWanted) {
+  grabTiles: function(tilesWanted) {
     var lettersGrabbed = [];
     for (var i = 0; i < tilesWanted; i++) {
-      var newLetter = contents.shift();
+      var newLetter = this.contents.shift();
       console.log(newLetter);
       lettersGrabbed.push(newLetter);
     };
@@ -69,9 +81,11 @@ Bag.prototype = {
 }
 
 // var bag = new Bag();
+// originalBagSize = bag.contents.length;
+// console.log(originalBagSize);
+// bag.grabTiles(5);
 // console.log(bag.contents);
-// var test = bag.grabTiles(bag.contents, 7);
-// console.log("New bag", bag.contents, bag.contents.length);
+// console.log(bag.contents.length);
 
 module.exports = Bag;
 
