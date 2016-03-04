@@ -20020,6 +20020,7 @@
 	
 	var Bag = function Bag() {
 	  this.contents = shuffle(englishLetters);
+	  this.empty = false;
 	};
 	
 	// Bag.prototype = {
@@ -20037,6 +20038,10 @@
 	Bag.prototype = {
 	  grabTiles: function grabTiles(tilesWanted) {
 	    var lettersGrabbed = [];
+	    if (this.contents.length <= tilesWanted) {
+	      tilesWanted = this.contents.length;
+	      this.empty = true;
+	    }
 	    for (var i = 0; i < tilesWanted; i++) {
 	      var newLetter = this.contents.shift();
 	      console.log(newLetter);

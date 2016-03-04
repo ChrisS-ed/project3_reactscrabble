@@ -42,4 +42,21 @@ describe('bag', function(){
     bag.grabTiles(5);
     assert.equal(bag.contents.length, originalBagSize - 5);
   });
+
+  it('should return only its remaining letters when asked for more letters than it contains', function(){
+    var bag = new Bag();
+    bag.contents = ["A", "B", "C"];
+    console.log(bag.contents);
+    var taken = bag.grabTiles(4);
+    assert.equal(taken.length, 3);
+  });
+
+  it('should be marked empty when all letters removed', function(){
+    var bag = new Bag();
+    bag.contents = ["A", "B", "C"];
+    console.log(bag.contents);
+    assert.equal(bag.empty, false);
+    var taken = bag.grabTiles(3);
+    assert.equal(bag.empty, true);
+  });
 })

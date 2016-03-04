@@ -54,6 +54,7 @@ var shuffle = function(array) {
 
 var Bag = function() {
   this.contents = shuffle(englishLetters);
+  this.empty = false;
 }
 
 // Bag.prototype = {
@@ -71,6 +72,10 @@ var Bag = function() {
 Bag.prototype = {
   grabTiles: function(tilesWanted) {
     var lettersGrabbed = [];
+    if (this.contents.length <= tilesWanted) {
+      tilesWanted = this.contents.length;
+      this.empty = true;
+    }
     for (var i = 0; i < tilesWanted; i++) {
       var newLetter = this.contents.shift();
       console.log(newLetter);
