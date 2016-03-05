@@ -5,7 +5,11 @@ var Tile = require('./Tile.jsx');
 
 var Board = React.createClass({
 
-  renderSquare: function (x,y,index) {
+  handleClick: function() {
+    console.log("CLICK");
+  },
+
+  renderSquare: function(x,y,index) {
     var tileX = this.props.tilePosition[0];
     var tileY = this.props.tilePosition[1];
     var tileLetter = this.props.tilePosition[2];
@@ -14,12 +18,13 @@ var Board = React.createClass({
         null;
 
     return (
-      <div key={index}
-        // size for each square is 100/15
-        style={{ width: '6.66666667%', height: '6.66666667%' }}>
-        <Square>
-          {squareContents}
-        </Square>
+      <div 
+        key={index}
+        style={{ width: '6.66666667%', height: '6.66666667%' }}
+        onClick={this.handleClick.bind(this,tileX,tileY)}>
+          <Square>
+            {squareContents}
+          </Square>
       </div>
     );
   },

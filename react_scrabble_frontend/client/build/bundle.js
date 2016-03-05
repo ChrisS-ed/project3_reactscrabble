@@ -19664,8 +19664,8 @@
 	var React = __webpack_require__(1);
 	var ScoreBox = __webpack_require__(160);
 	var PlayBox = __webpack_require__(161);
-	var ButtonBox = __webpack_require__(167);
-	var Bag = __webpack_require__(168);
+	var ButtonBox = __webpack_require__(168);
+	var Bag = __webpack_require__(169);
 	
 	var GameBox = React.createClass({
 	  displayName: 'GameBox',
@@ -19798,6 +19798,10 @@
 	  displayName: 'Board',
 	
 	
+	  handleClick: function handleClick() {
+	    console.log("CLICK");
+	  },
+	
 	  renderSquare: function renderSquare(x, y, index) {
 	    var tileX = this.props.tilePosition[0];
 	    var tileY = this.props.tilePosition[1];
@@ -19806,9 +19810,10 @@
 	
 	    return React.createElement(
 	      'div',
-	      { key: index
-	        // size for each square is 100/15
-	        , style: { width: '6.66666667%', height: '6.66666667%' } },
+	      {
+	        key: index,
+	        style: { width: '6.66666667%', height: '6.66666667%' },
+	        onClick: this.handleClick.bind(this, tileX, tileY) },
 	      React.createElement(
 	        Square,
 	        null,
@@ -19908,7 +19913,7 @@
 	'use strict';
 	
 	var React = __webpack_require__(1);
-	var RackSlot = __webpack_require__(169);
+	var RackSlot = __webpack_require__(167);
 	var Tile = __webpack_require__(165);
 	
 	var RackBox = React.createClass({
@@ -19963,6 +19968,31 @@
 	
 	var React = __webpack_require__(1);
 	
+	var RackSlot = React.createClass({
+	  displayName: 'RackSlot',
+	
+	  render: function render() {
+	    return React.createElement(
+	      'div',
+	      { style: { backgroundColor: 'brown',
+	          border: '2px solid black',
+	          width: '100%',
+	          minHeight: '20px' } },
+	      this.props.children
+	    );
+	  }
+	});
+	
+	module.exports = RackSlot;
+
+/***/ },
+/* 168 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var React = __webpack_require__(1);
+	
 	var ButtonBox = React.createClass({
 	  displayName: 'ButtonBox',
 	
@@ -19978,7 +20008,7 @@
 	module.exports = ButtonBox;
 
 /***/ },
-/* 168 */
+/* 169 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -20051,31 +20081,6 @@
 	// console.log(bag.contents.length);
 	
 	module.exports = Bag;
-
-/***/ },
-/* 169 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var React = __webpack_require__(1);
-	
-	var RackSlot = React.createClass({
-	  displayName: 'RackSlot',
-	
-	  render: function render() {
-	    return React.createElement(
-	      'div',
-	      { style: { backgroundColor: 'brown',
-	          border: '2px solid black',
-	          width: '100%',
-	          minHeight: '20px' } },
-	      this.props.children
-	    );
-	  }
-	});
-	
-	module.exports = RackSlot;
 
 /***/ }
 /******/ ]);
