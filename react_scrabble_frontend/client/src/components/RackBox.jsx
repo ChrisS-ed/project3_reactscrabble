@@ -5,10 +5,10 @@ var Tile = require('./Tile.jsx');
 var RackBox = React.createClass({
 
   renderSlot: function(index) {
-    console.log(index);
-    var tileX = this.props.tilePosition[index][0];
-    var tileY = this.props.tilePosition[index][1];
-    var tileLetter = this.props.tilePosition[index][2];
+    var tileX = this.props.data[index][0];
+    var tileY = this.props.data[index][1];
+    var tileLetter = this.props.data[index][2];
+
     var slotContents = (tileX === 16 && tileY === index) ?
         <Tile data = {tileLetter}/> :
         null;

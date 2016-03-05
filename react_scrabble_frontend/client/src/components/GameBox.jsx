@@ -16,22 +16,20 @@ var GameBox = React.createClass({
   },
 
   render: function() {
+    var positionedRackTiles = [];
+    for (var i = 0; i < this.state.rackTiles.length; i++) {
+      positionedRackTiles.push([16, i, this.state.rackTiles[i]]);
+    };
+
     return (
     <div>
       <h2>GameBox</h2>
       <ScoreBox/>
-      <PlayBox/>
+      <PlayBox data={positionedRackTiles}/>
       <ButtonBox/>
     </div>
     );
   }
 });
-
-// var bag = new Bag();
-// console.log(bag.contents);
-// var firstTiles = bag.grabTiles(bag.contents, 7);
-// console.log("firstTiles", firstTiles);
-//console.log("New bag", bag.contents, bag.contents.length);
-//console.log("IN GAMEBOX:", bag.contents, bag.contents.length);
 
 module.exports = GameBox;

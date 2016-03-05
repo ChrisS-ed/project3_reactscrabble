@@ -19681,6 +19681,11 @@
 	  },
 	
 	  render: function render() {
+	    var positionedRackTiles = [];
+	    for (var i = 0; i < this.state.rackTiles.length; i++) {
+	      positionedRackTiles.push([16, i, this.state.rackTiles[i]]);
+	    };
+	
 	    return React.createElement(
 	      'div',
 	      null,
@@ -19690,18 +19695,11 @@
 	        'GameBox'
 	      ),
 	      React.createElement(ScoreBox, null),
-	      React.createElement(PlayBox, null),
+	      React.createElement(PlayBox, { data: positionedRackTiles }),
 	      React.createElement(ButtonBox, null)
 	    );
 	  }
 	});
-	
-	// var bag = new Bag();
-	// console.log(bag.contents);
-	// var firstTiles = bag.grabTiles(bag.contents, 7);
-	// console.log("firstTiles", firstTiles);
-	//console.log("New bag", bag.contents, bag.contents.length);
-	//console.log("IN GAMEBOX:", bag.contents, bag.contents.length);
 	
 	module.exports = GameBox;
 
@@ -19750,7 +19748,7 @@
 	        'PlayBox'
 	      ),
 	      React.createElement(BoardBox, null),
-	      React.createElement(RackBox, { tilePosition: [[16, 0, "A"], [16, 1, "B"], [16, 2, "C"], [16, 3, "D"], [16, 4, "E"], [16, 5, "F"], [16, 6, "G"]] })
+	      React.createElement(RackBox, { data: this.props.data })
 	    );
 	  }
 	});
@@ -19916,10 +19914,10 @@
 	
 	
 	  renderSlot: function renderSlot(index) {
-	    console.log(index);
-	    var tileX = this.props.tilePosition[index][0];
-	    var tileY = this.props.tilePosition[index][1];
-	    var tileLetter = this.props.tilePosition[index][2];
+	    var tileX = this.props.data[index][0];
+	    var tileY = this.props.data[index][1];
+	    var tileLetter = this.props.data[index][2];
+	
 	    var slotContents = tileX === 16 && tileY === index ? React.createElement(Tile, { data: tileLetter }) : null;
 	
 	    return React.createElement(
