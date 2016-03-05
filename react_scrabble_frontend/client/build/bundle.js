@@ -19881,7 +19881,9 @@
 	
 	
 	  render: function render() {
-	    var letter = this.props.data;
+	    var xPos = this.props.data[0];
+	    var yPos = this.props.data[1];
+	    var letter = this.props.data[2];
 	    return React.createElement(
 	      'div',
 	      { style: { backgroundColor: 'red',
@@ -19918,7 +19920,7 @@
 	    var tileY = this.props.data[index][1];
 	    var tileLetter = this.props.data[index][2];
 	
-	    var slotContents = tileX === 16 && tileY === index ? React.createElement(Tile, { data: tileLetter }) : null;
+	    var slotContents = tileX === 16 && tileY === index ? React.createElement(Tile, { data: [tileX, tileY, tileLetter] }) : null;
 	
 	    return React.createElement(
 	      'div',
