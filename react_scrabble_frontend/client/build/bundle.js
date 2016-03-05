@@ -19802,7 +19802,7 @@
 	    var tileX = this.props.tilePosition[0];
 	    var tileY = this.props.tilePosition[1];
 	    var tileLetter = this.props.tilePosition[2];
-	    var squareContents = x === tileX && y === tileY ? React.createElement(Tile, { data: tileLetter }) : null;
+	    var squareContents = x === tileX && y === tileY ? React.createElement(Tile, { data: [tileX, tileY, tileLetter] }) : null;
 	
 	    return React.createElement(
 	      'div',
