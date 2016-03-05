@@ -19750,7 +19750,7 @@
 	        'PlayBox'
 	      ),
 	      React.createElement(BoardBox, null),
-	      React.createElement(RackBox, { tilePosition: [16, 2, "X"] })
+	      React.createElement(RackBox, { tilePosition: [[16, 0, "A"], [16, 1, "B"], [16, 2, "C"], [16, 3, "D"], [16, 4, "E"], [16, 5, "F"], [16, 6, "G"]] })
 	    );
 	  }
 	});
@@ -19916,9 +19916,10 @@
 	
 	
 	  renderSlot: function renderSlot(index) {
-	    var tileX = this.props.tilePosition[0];
-	    var tileY = this.props.tilePosition[1];
-	    var tileLetter = this.props.tilePosition[2];
+	    console.log(index);
+	    var tileX = this.props.tilePosition[index][0];
+	    var tileY = this.props.tilePosition[index][1];
+	    var tileLetter = this.props.tilePosition[index][2];
 	    var slotContents = tileX === 16 && tileY === index ? React.createElement(Tile, { data: tileLetter }) : null;
 	
 	    return React.createElement(
