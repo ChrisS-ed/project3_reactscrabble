@@ -19923,6 +19923,9 @@
 	var RackBox = React.createClass({
 	  displayName: 'RackBox',
 	
+	  handleClick: function handleClick() {
+	    console.log("CLICK");
+	  },
 	
 	  renderSlot: function renderSlot(index) {
 	    var tileX = this.props.data[index][0];
@@ -19936,7 +19939,8 @@
 	      'div',
 	      { key: index
 	        // seven slots
-	        , style: { width: '14%', height: '20px' } },
+	        , style: { width: '14%', height: '20px' },
+	        onClick: this.handleClick.bind(this, tileX, tileY) },
 	      React.createElement(
 	        RackSlot,
 	        null,

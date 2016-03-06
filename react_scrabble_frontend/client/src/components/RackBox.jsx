@@ -3,6 +3,9 @@ var RackSlot = require('./RackSlot.jsx');
 var Tile = require('./Tile.jsx');
 
 var RackBox = React.createClass({
+  handleClick: function() {
+    console.log("CLICK");
+  },
 
   renderSlot: function(index) {
     var tileX = this.props.data[index][0];
@@ -17,7 +20,8 @@ var RackBox = React.createClass({
     return (
       <div key={index}
         // seven slots
-        style={{ width: '14%', height: '20px' }}>
+        style={{ width: '14%', height: '20px' }}
+        onClick={this.handleClick.bind(this,tileX,tileY)}>
         <RackSlot>
           {slotContents}
         </RackSlot>
