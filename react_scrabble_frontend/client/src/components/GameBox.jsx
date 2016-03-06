@@ -10,22 +10,24 @@ var GameBox = React.createClass({
   getInitialState: function(){
     var bag = new Bag();
     var rackTiles = bag.grabTiles(7);
+
+    var tilesInPlay = [];
+    for (var i = 0; i < rackTiles.length; i++) {
+      tilesInPlay.push([16, i, rackTiles[i]]);
+    };
+
     return {
-      rackTiles
+      tilesInPlay
     }
   },
 
   render: function() {
-    var positionedRackTiles = [];
-    for (var i = 0; i < this.state.rackTiles.length; i++) {
-      positionedRackTiles.push([16, i, this.state.rackTiles[i]]);
-    };
-
+    
     return (
     <div>
       <h2>GameBox</h2>
-      <ScoreBox/>
-      <PlayBox data={positionedRackTiles}/>
+      <ScoreBox data={this.state.tilesInPlay}/>
+      <PlayBox data={this.state.tilesInPlay}/>
       <ButtonBox/>
     </div>
     );

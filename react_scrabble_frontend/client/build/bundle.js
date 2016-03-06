@@ -19675,16 +19675,18 @@
 	  getInitialState: function getInitialState() {
 	    var bag = new Bag();
 	    var rackTiles = bag.grabTiles(7);
+	
+	    var tilesInPlay = [];
+	    for (var i = 0; i < rackTiles.length; i++) {
+	      tilesInPlay.push([16, i, rackTiles[i]]);
+	    };
+	
 	    return {
-	      rackTiles: rackTiles
+	      tilesInPlay: tilesInPlay
 	    };
 	  },
 	
 	  render: function render() {
-	    var positionedRackTiles = [];
-	    for (var i = 0; i < this.state.rackTiles.length; i++) {
-	      positionedRackTiles.push([16, i, this.state.rackTiles[i]]);
-	    };
 	
 	    return React.createElement(
 	      'div',
@@ -19694,8 +19696,8 @@
 	        null,
 	        'GameBox'
 	      ),
-	      React.createElement(ScoreBox, null),
-	      React.createElement(PlayBox, { data: positionedRackTiles }),
+	      React.createElement(ScoreBox, { data: this.state.tilesInPlay }),
+	      React.createElement(PlayBox, { data: this.state.tilesInPlay }),
 	      React.createElement(ButtonBox, null)
 	    );
 	  }
