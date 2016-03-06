@@ -13,8 +13,9 @@ var Board = React.createClass({
     var tileX = this.props.tilePosition[0];
     var tileY = this.props.tilePosition[1];
     var tileLetter = this.props.tilePosition[2];
+    var selected = this.props.tilePosition[3];
     var squareContents = (x === tileX && y === tileY) ?
-        <Tile data = {[tileX, tileY, tileLetter]}/> :
+        <Tile data = {[tileX, tileY, tileLetter, selected]}/> :
         null;
 
     return (

@@ -8,9 +8,10 @@ var RackBox = React.createClass({
     var tileX = this.props.data[index][0];
     var tileY = this.props.data[index][1];
     var tileLetter = this.props.data[index][2];
+    var selected = this.props.data[index][3];
 
     var slotContents = (tileX === 16 && tileY === index) ?
-        <Tile data = {[tileX, tileY, tileLetter]}/> :
+        <Tile data = {[tileX, tileY, tileLetter, selected]}/> :
         null;
 
     return (

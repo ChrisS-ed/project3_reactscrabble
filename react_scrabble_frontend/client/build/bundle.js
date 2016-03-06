@@ -19678,7 +19678,7 @@
 	
 	    var tilesInPlay = [];
 	    for (var i = 0; i < rackTiles.length; i++) {
-	      tilesInPlay.push([16, i, rackTiles[i]]);
+	      tilesInPlay.push([16, i, rackTiles[i], false]);
 	    };
 	
 	    return {
@@ -19696,7 +19696,7 @@
 	        null,
 	        'GameBox'
 	      ),
-	      React.createElement(ScoreBox, { data: this.state.tilesInPlay }),
+	      React.createElement(ScoreBox, null),
 	      React.createElement(PlayBox, { data: this.state.tilesInPlay }),
 	      React.createElement(ButtonBox, null)
 	    );
@@ -19778,7 +19778,7 @@
 	        null,
 	        'BoardBox'
 	      ),
-	      React.createElement(Board, { tilePosition: [2, 2, "A"] })
+	      React.createElement(Board, { tilePosition: [2, 2, "A", false] })
 	    );
 	  }
 	});
@@ -19808,7 +19808,8 @@
 	    var tileX = this.props.tilePosition[0];
 	    var tileY = this.props.tilePosition[1];
 	    var tileLetter = this.props.tilePosition[2];
-	    var squareContents = x === tileX && y === tileY ? React.createElement(Tile, { data: [tileX, tileY, tileLetter] }) : null;
+	    var selected = this.props.tilePosition[3];
+	    var squareContents = x === tileX && y === tileY ? React.createElement(Tile, { data: [tileX, tileY, tileLetter, selected] }) : null;
 	
 	    return React.createElement(
 	      'div',
@@ -19891,6 +19892,7 @@
 	    var xPos = this.props.data[0];
 	    var yPos = this.props.data[1];
 	    var letter = this.props.data[2];
+	    var selected = this.props.data[3];
 	    return React.createElement(
 	      'div',
 	      { style: { backgroundColor: 'red',
@@ -19926,8 +19928,9 @@
 	    var tileX = this.props.data[index][0];
 	    var tileY = this.props.data[index][1];
 	    var tileLetter = this.props.data[index][2];
+	    var selected = this.props.data[index][3];
 	
-	    var slotContents = tileX === 16 && tileY === index ? React.createElement(Tile, { data: [tileX, tileY, tileLetter] }) : null;
+	    var slotContents = tileX === 16 && tileY === index ? React.createElement(Tile, { data: [tileX, tileY, tileLetter, selected] }) : null;
 	
 	    return React.createElement(
 	      'div',

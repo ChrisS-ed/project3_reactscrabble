@@ -13,7 +13,7 @@ var GameBox = React.createClass({
 
     var tilesInPlay = [];
     for (var i = 0; i < rackTiles.length; i++) {
-      tilesInPlay.push([16, i, rackTiles[i]]);
+      tilesInPlay.push([16, i, rackTiles[i], false]);
     };
 
     return {
@@ -26,7 +26,7 @@ var GameBox = React.createClass({
     return (
     <div>
       <h2>GameBox</h2>
-      <ScoreBox data={this.state.tilesInPlay}/>
+      <ScoreBox/>
       <PlayBox data={this.state.tilesInPlay}/>
       <ButtonBox/>
     </div>
