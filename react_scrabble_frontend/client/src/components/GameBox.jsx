@@ -42,6 +42,29 @@ var GameBox = React.createClass({
       // });
     },
 
+    handleSquareClick: function(x,y) {
+        console.log("Board X:", x, "Board Y:", y);
+        console.log("Tilesinplay (before):", tilesInPlay);
+
+        // change this tile's selected tag to true and all other tiles' selected tags to false
+        // for (var i = 0; i < tilesInPlay.length; i++) {
+        //   if (tilesInPlay[i][0] === x && tilesInPlay[i][1] === y) {
+        //     tilesInPlay[i][3] = true;
+        //   }
+        //   else {
+        //     tilesInPlay[i][3] = false;
+        //   }
+        // };
+        // console.log("Tilesinplay (after):", tilesInPlay);
+
+        // (highlight square)
+        // set state of tilesInPlay(do I need to here?)
+
+        // this.setState({
+          
+        // });
+      },
+
   render: function() {
   console.log("rendering");
     return (
@@ -50,7 +73,8 @@ var GameBox = React.createClass({
       <ScoreBox/>
       <PlayBox 
         data={this.state.tilesInPlay}
-        onRackClick={this.handleRackClick}/>
+        onRackClick={this.handleRackClick}
+        onSquareClick={this.handleSquareClick}/>
       <ButtonBox/>
     </div>
     );

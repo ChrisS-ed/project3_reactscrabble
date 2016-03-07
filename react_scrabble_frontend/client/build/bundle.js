@@ -19706,6 +19706,29 @@
 	    // });
 	  },
 	
+	  handleSquareClick: function handleSquareClick(x, y) {
+	    console.log("Board X:", x, "Board Y:", y);
+	    console.log("Tilesinplay (before):", tilesInPlay);
+	
+	    // change this tile's selected tag to true and all other tiles' selected tags to false
+	    // for (var i = 0; i < tilesInPlay.length; i++) {
+	    //   if (tilesInPlay[i][0] === x && tilesInPlay[i][1] === y) {
+	    //     tilesInPlay[i][3] = true;
+	    //   }
+	    //   else {
+	    //     tilesInPlay[i][3] = false;
+	    //   }
+	    // };
+	    // console.log("Tilesinplay (after):", tilesInPlay);
+	
+	    // (highlight square)
+	    // set state of tilesInPlay(do I need to here?)
+	
+	    // this.setState({
+	
+	    // });
+	  },
+	
 	  render: function render() {
 	    console.log("rendering");
 	    return React.createElement(
@@ -19719,7 +19742,8 @@
 	      React.createElement(ScoreBox, null),
 	      React.createElement(PlayBox, {
 	        data: this.state.tilesInPlay,
-	        onRackClick: this.handleRackClick }),
+	        onRackClick: this.handleRackClick,
+	        onSquareClick: this.handleSquareClick }),
 	      React.createElement(ButtonBox, null)
 	    );
 	  }
@@ -19824,9 +19848,9 @@
 	  displayName: 'Board',
 	
 	
-	  handleClick: function handleClick(X, Y) {
+	  handleClick: function handleClick(x, y) {
 	    console.log("CLICK");
-	    console.log(X, Y);
+	    console.log(x, y);
 	  },
 	
 	  renderSquare: function renderSquare(x, y, index) {
@@ -19841,7 +19865,7 @@
 	      {
 	        key: index,
 	        style: { width: '6.66666667%', height: '6.66666667%' },
-	        onClick: this.handleClick.bind(this, tileX, tileY) },
+	        onClick: this.handleClick.bind(this, x, y) },
 	      React.createElement(
 	        Square,
 	        null,

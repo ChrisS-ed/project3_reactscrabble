@@ -5,9 +5,9 @@ var Tile = require('./Tile.jsx');
 
 var Board = React.createClass({
 
-  handleClick: function(X,Y) {
+  handleClick: function(x,y) {
     console.log("CLICK");
-    console.log(X,Y);
+    console.log(x,y);
   },
 
   renderSquare: function(x,y,index) {
@@ -23,7 +23,7 @@ var Board = React.createClass({
       <div 
         key={index}
         style={{ width: '6.66666667%', height: '6.66666667%' }}
-        onClick={this.handleClick.bind(this,tileX,tileY)}>
+        onClick={this.handleClick.bind(this,x,y)}>
           <Square>
             {squareContents}
           </Square>
