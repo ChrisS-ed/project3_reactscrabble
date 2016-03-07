@@ -19708,7 +19708,6 @@
 	
 	  handleSquareClick: function handleSquareClick(x, y) {
 	    console.log("Board X:", x, "Board Y:", y);
-	    console.log("Tilesinplay (before):", tilesInPlay);
 	
 	    // change this tile's selected tag to true and all other tiles' selected tags to false
 	    // for (var i = 0; i < tilesInPlay.length; i++) {
@@ -19795,7 +19794,8 @@
 	        null,
 	        'PlayBox'
 	      ),
-	      React.createElement(BoardBox, null),
+	      React.createElement(BoardBox, {
+	        onSquareClick: this.props.onSquareClick }),
 	      React.createElement(RackBox, {
 	        data: this.props.data,
 	        onRackClick: this.props.onRackClick })
@@ -19826,7 +19826,9 @@
 	        null,
 	        'BoardBox'
 	      ),
-	      React.createElement(Board, { tilePosition: [2, 2, "A", false] })
+	      React.createElement(Board, {
+	        tilePosition: [2, 2, "A", false],
+	        onSquareClick: this.props.onSquareClick })
 	    );
 	  }
 	});
@@ -19840,7 +19842,6 @@
 	'use strict';
 	
 	var React = __webpack_require__(1);
-	// var PropTypes = React.PropTypes;
 	var Square = __webpack_require__(164);
 	var Tile = __webpack_require__(165);
 	
@@ -19851,6 +19852,7 @@
 	  handleClick: function handleClick(x, y) {
 	    console.log("CLICK");
 	    console.log(x, y);
+	    this.props.onSquareClick(x, y);
 	  },
 	
 	  renderSquare: function renderSquare(x, y, index) {

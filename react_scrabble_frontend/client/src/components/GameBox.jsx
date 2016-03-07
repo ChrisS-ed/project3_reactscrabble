@@ -44,7 +44,6 @@ var GameBox = React.createClass({
 
     handleSquareClick: function(x,y) {
         console.log("Board X:", x, "Board Y:", y);
-        console.log("Tilesinplay (before):", tilesInPlay);
 
         // change this tile's selected tag to true and all other tiles' selected tags to false
         // for (var i = 0; i < tilesInPlay.length; i++) {

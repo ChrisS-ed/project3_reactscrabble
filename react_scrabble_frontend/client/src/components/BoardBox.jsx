@@ -6,7 +6,9 @@ var BoardBox = React.createClass({
     return (
       <div>
         <h4>BoardBox</h4>
-        <Board tilePosition={[2, 2, "A", false]}/>
+        <Board 
+          tilePosition={[2, 2, "A", false]}
+          onSquareClick={this.props.onSquareClick}/>
       </div>
       )
   }

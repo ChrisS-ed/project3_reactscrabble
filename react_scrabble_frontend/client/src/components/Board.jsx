@@ -1,5 +1,4 @@
 var React = require('react');
-// var PropTypes = React.PropTypes;
 var Square = require('./Square.jsx');
 var Tile = require('./Tile.jsx');
 
@@ -8,6 +7,9 @@ var Board = React.createClass({
   handleClick: function(x,y) {
     console.log("CLICK");
     console.log(x,y);
+    this.props.onSquareClick(
+          x,y
+    );
   },
 
   renderSquare: function(x,y,index) {
