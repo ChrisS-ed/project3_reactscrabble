@@ -19684,10 +19684,7 @@
 	    };
 	  },
 	
-	  handleRackClick: function handleRackClick(x, y) {
-	    console.log("Rack X:", x, "Rack Y:", y);
-	    console.log("Tilesinplay (before):", tilesInPlay);
-	
+	  selectThisTile: function selectThisTile(x, y) {
 	    // change this tile's selected tag to true and all other tiles' selected tags to false
 	    for (var i = 0; i < tilesInPlay.length; i++) {
 	      if (tilesInPlay[i][0] === x && tilesInPlay[i][1] === y) {
@@ -19696,14 +19693,11 @@
 	        tilesInPlay[i][3] = false;
 	      }
 	    };
-	    console.log("Tilesinplay (after):", tilesInPlay);
+	  },
 	
-	    // (highlight square)
-	    // set state of tilesInPlay(do I need to here?)
-	
-	    // this.setState({
-	
-	    // });
+	  handleRackClick: function handleRackClick(x, y) {
+	    console.log("Rack X:", x, "Rack Y:", y);
+	    this.selectThisTile(x, y);
 	  },
 	
 	  handleSquareClick: function handleSquareClick(x, y) {
@@ -19713,6 +19707,7 @@
 	    for (var i = 0; i < tilesInPlay.length; i++) {
 	      if (tilesInPlay[i][0] === x && tilesInPlay[i][1] === y) {
 	        console.log("Tile already in that position!");
+	        this.selectThisTile(tilesInPlay[i][0], tilesInPlay[i][1]);
 	        return;
 	      }
 	    };
