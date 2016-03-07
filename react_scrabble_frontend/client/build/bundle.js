@@ -19858,23 +19858,38 @@
 	  },
 	
 	  renderSquare: function renderSquare(x, y, index) {
-	    // for (var i = 0; i < this.props.data.length; i++) {
-	    //   var tileX = this.props.data[i][0];
-	    //   var tileY = this.props.data[i][1];
-	    //   var tileLetter = this.props.data[i][2];
-	    //   var selected = this.props.data[i][3];
-	    //   console.log(tileX,tileY,tileLetter,selected);
-	    //   var squareContents = (x === tileX && y === tileY) ?
-	    //       <Tile data = {[tileX, tileY, tileLetter, selected]}/> :
-	    //       null;
-	    // };
+	    var squareContents = null;
+	    for (var i = 0; i < this.props.data.length; i++) {
+	      var tileX = this.props.data[i][0];
+	      var tileY = this.props.data[i][1];
+	      var tileLetter = this.props.data[i][2];
+	      var selected = this.props.data[i][3];
+	      // console.log(tileX,tileY,tileLetter,selected);
+	      var containsTile = x === tileX && y === tileY;
+	      if (containsTile) {
+	        console.log("HAVE TILE", x, y);
+	        squareContents = React.createElement(Tile, { letter: tileLetter });
+	        break;
+	      }
+	      // var squareContents = containsTile ?
+	      //     <Tile letter = {tileLetter} />  :
+	      //     null;
+	      // var squareContents = true ?
+	      //     <Tile letter = 'A' />  :
+	      //     null;
+	    };
 	
-	    var tileX = this.props.tilePosition[0];
-	    var tileY = this.props.tilePosition[1];
-	    var tileLetter = this.props.tilePosition[2];
-	    var selected = this.props.tilePosition[3];
-	    var squareContents = x === tileX && y === tileY ? React.createElement(Tile, { letter: tileLetter }) : null;
-	
+	    // var tileX = this.props.tilePosition[0];
+	    // var tileY = this.props.tilePosition[1];
+	    // var tileLetter = this.props.tilePosition[2];
+	    // var selected = this.props.tilePosition[3];
+	    // var squareContents = (x === tileX && y === tileY) ?
+	    //     <Tile letter = {tileLetter}/> :
+	    //     null;
+	    // console.log('rendering square', x, y)
+	    // if(squareContents){
+	    //   console.log('square contents', squareContents)
+	    // }
 	    return React.createElement(
 	      'div',
 	      {
@@ -19956,6 +19971,7 @@
 	    // var xPos = this.props.data[0];
 	    // var yPos = this.props.data[1];
 	    var letter = this.props.letter;
+	    console.log("Tile Letter: " + letter);
 	    // var selected = this.props.data[3];
 	    return React.createElement(
 	      'div',
