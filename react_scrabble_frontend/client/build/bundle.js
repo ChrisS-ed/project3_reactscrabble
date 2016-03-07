@@ -19686,6 +19686,11 @@
 	    };
 	  },
 	
+	  handleSquareClick: function handleSquareClick(X, Y) {
+	    console.log("Rack X:", X, "Rack Y:", Y);
+	    this.setState({});
+	  },
+	
 	  render: function render() {
 	
 	    return React.createElement(
@@ -19697,7 +19702,9 @@
 	        'GameBox'
 	      ),
 	      React.createElement(ScoreBox, null),
-	      React.createElement(PlayBox, { data: this.state.tilesInPlay }),
+	      React.createElement(PlayBox, {
+	        data: this.state.tilesInPlay,
+	        onSquareClick: this.handleSquareClick }),
 	      React.createElement(ButtonBox, null)
 	    );
 	  }
@@ -19750,7 +19757,9 @@
 	        'PlayBox'
 	      ),
 	      React.createElement(BoardBox, null),
-	      React.createElement(RackBox, { data: this.props.data })
+	      React.createElement(RackBox, {
+	        data: this.props.data,
+	        onSquareClick: this.props.onSquareClick })
 	    );
 	  }
 	});
@@ -19800,8 +19809,9 @@
 	  displayName: 'Board',
 	
 	
-	  handleClick: function handleClick() {
+	  handleClick: function handleClick(X, Y) {
 	    console.log("CLICK");
+	    console.log(X, Y);
 	  },
 	
 	  renderSquare: function renderSquare(x, y, index) {
@@ -19923,8 +19933,10 @@
 	var RackBox = React.createClass({
 	  displayName: 'RackBox',
 	
-	  handleClick: function handleClick() {
+	  handleClick: function handleClick(X, Y) {
 	    console.log("CLICK");
+	    console.log(X, Y);
+	    this.props.onSquareClick(X, Y);
 	  },
 	
 	  renderSlot: function renderSlot(index) {

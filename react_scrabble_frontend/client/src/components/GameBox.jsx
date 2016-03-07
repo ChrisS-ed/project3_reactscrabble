@@ -21,13 +21,22 @@ var GameBox = React.createClass({
     }
   },
 
+  handleSquareClick: function(X,Y) {
+      console.log("Rack X:", X, "Rack Y:", Y);
+      this.setState({
+        
+      });
+    },
+
   render: function() {
     
     return (
     <div>
       <h2>GameBox</h2>
       <ScoreBox/>
-      <PlayBox data={this.state.tilesInPlay}/>
+      <PlayBox 
+        data={this.state.tilesInPlay}
+        onSquareClick={this.handleSquareClick}/>
       <ButtonBox/>
     </div>
     );

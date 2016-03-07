@@ -3,8 +3,12 @@ var RackSlot = require('./RackSlot.jsx');
 var Tile = require('./Tile.jsx');
 
 var RackBox = React.createClass({
-  handleClick: function() {
+  handleClick: function(X,Y) {
     console.log("CLICK");
+    console.log(X,Y);
+    this.props.onSquareClick(
+          X,Y
+    );
   },
 
   renderSlot: function(index) {

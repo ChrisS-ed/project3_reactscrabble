@@ -5,8 +5,9 @@ var Tile = require('./Tile.jsx');
 
 var Board = React.createClass({
 
-  handleClick: function() {
+  handleClick: function(X,Y) {
     console.log("CLICK");
+    console.log(X,Y);
   },
 
   renderSquare: function(x,y,index) {
