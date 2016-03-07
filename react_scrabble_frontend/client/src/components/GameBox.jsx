@@ -45,23 +45,24 @@ var GameBox = React.createClass({
     handleSquareClick: function(x,y) {
         console.log("Board X:", x, "Board Y:", y);
 
-        // change this tile's selected tag to true and all other tiles' selected tags to false
-        // for (var i = 0; i < tilesInPlay.length; i++) {
-        //   if (tilesInPlay[i][0] === x && tilesInPlay[i][1] === y) {
-        //     tilesInPlay[i][3] = true;
-        //   }
-        //   else {
-        //     tilesInPlay[i][3] = false;
-        //   }
-        // };
-        // console.log("Tilesinplay (after):", tilesInPlay);
+        // find tile marked selected true in tilesinplay
+        // change tile's X & Y positions to those of square clicked on
 
-        // (highlight square)
+
+        for (var i = 0; i < tilesInPlay.length; i++) {
+          if (tilesInPlay[i][3] === true) {
+            tilesInPlay[i][0] = x;
+            tilesInPlay[i][1] = y;
+          }
+        };
+
+        console.log("Tilesinplay (after):", tilesInPlay);
+
         // set state of tilesInPlay(do I need to here?)
 
-        // this.setState({
-          
-        // });
+        this.setState({
+          tilesInPlay: tilesInPlay
+        });
       },
 
   render: function() {
