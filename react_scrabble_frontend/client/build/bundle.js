@@ -19709,19 +19709,22 @@
 	  handleSquareClick: function handleSquareClick(x, y) {
 	    console.log("Board X:", x, "Board Y:", y);
 	
+	    // abort move if square clicked on already contains a tile - make that tile the new selected tile, remove selected status from old tile
+	    for (var i = 0; i < tilesInPlay.length; i++) {
+	      if (tilesInPlay[i][0] === x && tilesInPlay[i][1] === y) {
+	        console.log("Tile already in that position!");
+	        return;
+	      }
+	    };
+	
 	    // find tile marked selected true in tilesinplay
 	    // change tile's X & Y positions to those of square clicked on
-	
 	    for (var i = 0; i < tilesInPlay.length; i++) {
 	      if (tilesInPlay[i][3] === true) {
 	        tilesInPlay[i][0] = x;
 	        tilesInPlay[i][1] = y;
 	      }
 	    };
-	
-	    console.log("Tilesinplay (after):", tilesInPlay);
-	
-	    // set state of tilesInPlay(do I need to here?)
 	
 	    this.setState({
 	      tilesInPlay: tilesInPlay
