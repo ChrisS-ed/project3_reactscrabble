@@ -19666,6 +19666,7 @@
 	var PlayBox = __webpack_require__(161);
 	var ButtonBox = __webpack_require__(168);
 	var Bag = __webpack_require__(169);
+	var tilesInPlay = [];
 	
 	var GameBox = React.createClass({
 	  displayName: 'GameBox',
@@ -19675,24 +19676,38 @@
 	  getInitialState: function getInitialState() {
 	    var bag = new Bag();
 	    var rackTiles = bag.grabTiles(7);
-	
-	    var tilesInPlay = [];
 	    for (var i = 0; i < rackTiles.length; i++) {
 	      tilesInPlay.push([16, i, rackTiles[i], false]);
 	    };
-	
 	    return {
 	      tilesInPlay: tilesInPlay
 	    };
 	  },
 	
-	  handleSquareClick: function handleSquareClick(X, Y) {
-	    console.log("Rack X:", X, "Rack Y:", Y);
-	    this.setState({});
+	  handleSquareClick: function handleSquareClick(x, y) {
+	    console.log("Rack X:", x, "Rack Y:", y);
+	    console.log("Tilesinplay (before):", tilesInPlay);
+	
+	    // change this tile's selected tag to true and all other tiles' selected tags to false
+	    for (var i = 0; i < tilesInPlay.length; i++) {
+	      if (tilesInPlay[i][0] === x && tilesInPlay[i][1] === y) {
+	        tilesInPlay[i][3] = true;
+	      } else {
+	        tilesInPlay[i][3] = false;
+	      }
+	    };
+	    console.log("Tilesinplay (after):", tilesInPlay);
+	
+	    // (highlight square)
+	    // set state of tilesInPlay
+	
+	    // this.setState({
+	
+	    // });
 	  },
 	
 	  render: function render() {
-	
+	    console.log("rendering");
 	    return React.createElement(
 	      'div',
 	      null,
