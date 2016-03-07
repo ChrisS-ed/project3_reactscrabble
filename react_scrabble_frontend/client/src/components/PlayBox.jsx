@@ -10,7 +10,7 @@ var PlayBox = React.createClass({
         <BoardBox/>
         <RackBox
           data={this.props.data}
-          onSquareClick={this.props.onSquareClick}/>
+          onRackClick={this.props.onRackClick}/>
       </div>
     )
   }

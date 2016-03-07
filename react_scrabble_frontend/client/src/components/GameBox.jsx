@@ -19,7 +19,7 @@ var GameBox = React.createClass({
     }
   },
 
-  handleSquareClick: function(x,y) {
+  handleRackClick: function(x,y) {
       console.log("Rack X:", x, "Rack Y:", y);
       console.log("Tilesinplay (before):", tilesInPlay);
 
@@ -31,13 +31,11 @@ var GameBox = React.createClass({
         else {
           tilesInPlay[i][3] = false;
         }
-        
       };
       console.log("Tilesinplay (after):", tilesInPlay);
 
-
       // (highlight square)
-      // set state of tilesInPlay
+      // set state of tilesInPlay(do I need to here?)
 
       // this.setState({
         
@@ -45,14 +43,14 @@ var GameBox = React.createClass({
     },
 
   render: function() {
- console.log("rendering")
+  console.log("rendering");
     return (
     <div>
       <h2>GameBox</h2>
       <ScoreBox/>
       <PlayBox 
         data={this.state.tilesInPlay}
-        onSquareClick={this.handleSquareClick}/>
+        onRackClick={this.handleRackClick}/>
       <ButtonBox/>
     </div>
     );

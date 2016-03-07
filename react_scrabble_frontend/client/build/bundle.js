@@ -19684,7 +19684,7 @@
 	    };
 	  },
 	
-	  handleSquareClick: function handleSquareClick(x, y) {
+	  handleRackClick: function handleRackClick(x, y) {
 	    console.log("Rack X:", x, "Rack Y:", y);
 	    console.log("Tilesinplay (before):", tilesInPlay);
 	
@@ -19699,7 +19699,7 @@
 	    console.log("Tilesinplay (after):", tilesInPlay);
 	
 	    // (highlight square)
-	    // set state of tilesInPlay
+	    // set state of tilesInPlay(do I need to here?)
 	
 	    // this.setState({
 	
@@ -19719,7 +19719,7 @@
 	      React.createElement(ScoreBox, null),
 	      React.createElement(PlayBox, {
 	        data: this.state.tilesInPlay,
-	        onSquareClick: this.handleSquareClick }),
+	        onRackClick: this.handleRackClick }),
 	      React.createElement(ButtonBox, null)
 	    );
 	  }
@@ -19774,7 +19774,7 @@
 	      React.createElement(BoardBox, null),
 	      React.createElement(RackBox, {
 	        data: this.props.data,
-	        onSquareClick: this.props.onSquareClick })
+	        onRackClick: this.props.onRackClick })
 	    );
 	  }
 	});
@@ -19951,7 +19951,7 @@
 	  handleClick: function handleClick(X, Y) {
 	    console.log("CLICK");
 	    console.log(X, Y);
-	    this.props.onSquareClick(X, Y);
+	    this.props.onRackClick(X, Y);
 	  },
 	
 	  renderSlot: function renderSlot(index) {
