@@ -19795,6 +19795,7 @@
 	        'PlayBox'
 	      ),
 	      React.createElement(BoardBox, {
+	        data: this.props.data,
 	        onSquareClick: this.props.onSquareClick }),
 	      React.createElement(RackBox, {
 	        data: this.props.data,
@@ -19828,6 +19829,7 @@
 	      ),
 	      React.createElement(Board, {
 	        tilePosition: [2, 2, "A", false],
+	        data: this.props.data,
 	        onSquareClick: this.props.onSquareClick })
 	    );
 	  }
@@ -19856,11 +19858,22 @@
 	  },
 	
 	  renderSquare: function renderSquare(x, y, index) {
+	    // for (var i = 0; i < this.props.data.length; i++) {
+	    //   var tileX = this.props.data[i][0];
+	    //   var tileY = this.props.data[i][1];
+	    //   var tileLetter = this.props.data[i][2];
+	    //   var selected = this.props.data[i][3];
+	    //   console.log(tileX,tileY,tileLetter,selected);
+	    //   var squareContents = (x === tileX && y === tileY) ?
+	    //       <Tile data = {[tileX, tileY, tileLetter, selected]}/> :
+	    //       null;
+	    // };
+	
 	    var tileX = this.props.tilePosition[0];
 	    var tileY = this.props.tilePosition[1];
 	    var tileLetter = this.props.tilePosition[2];
 	    var selected = this.props.tilePosition[3];
-	    var squareContents = x === tileX && y === tileY ? React.createElement(Tile, { data: [tileX, tileY, tileLetter, selected] }) : null;
+	    var squareContents = x === tileX && y === tileY ? React.createElement(Tile, { letter: tileLetter }) : null;
 	
 	    return React.createElement(
 	      'div',
@@ -19940,10 +19953,10 @@
 	
 	
 	  render: function render() {
-	    var xPos = this.props.data[0];
-	    var yPos = this.props.data[1];
-	    var letter = this.props.data[2];
-	    var selected = this.props.data[3];
+	    // var xPos = this.props.data[0];
+	    // var yPos = this.props.data[1];
+	    var letter = this.props.letter;
+	    // var selected = this.props.data[3];
 	    return React.createElement(
 	      'div',
 	      { style: { backgroundColor: 'red',
@@ -19986,7 +19999,7 @@
 	    var tileLetter = this.props.data[index][2];
 	    var selected = this.props.data[index][3];
 	
-	    var slotContents = tileX === 16 && tileY === index ? React.createElement(Tile, { data: [tileX, tileY, tileLetter, selected] }) : null;
+	    var slotContents = tileX === 16 && tileY === index ? React.createElement(Tile, { letter: tileLetter }) : null;
 	
 	    return React.createElement(
 	      'div',
