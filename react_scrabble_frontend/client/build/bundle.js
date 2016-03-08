@@ -19969,7 +19969,7 @@
 	    // var xPos = this.props.data[0];
 	    // var yPos = this.props.data[1];
 	    var letter = this.props.letter;
-	    console.log("Tile Letter: " + letter);
+	    //console.log("Tile Letter: " + letter)
 	    // var selected = this.props.data[3];
 	    return React.createElement(
 	      'div',
@@ -20001,10 +20001,10 @@
 	var RackBox = React.createClass({
 	  displayName: 'RackBox',
 	
-	  handleClick: function handleClick(X, Y) {
+	  handleClick: function handleClick(x, y) {
 	    console.log("CLICK");
-	    console.log(X, Y);
-	    this.props.onRackClick(X, Y);
+	    console.log(x, y);
+	    this.props.onRackClick(x, y);
 	  },
 	
 	  renderSlot: function renderSlot(index) {
@@ -20155,7 +20155,7 @@
 	    }
 	    for (var i = 0; i < tilesWanted; i++) {
 	      var newLetter = this.contents.shift();
-	      console.log(newLetter);
+	      //console.log(newLetter);
 	      lettersGrabbed.push(newLetter);
 	    };
 	    return lettersGrabbed;

@@ -20,7 +20,7 @@ var Board = React.createClass({
       var tileLetter = this.props.data[i][2];
       var selected = this.props.data[i][3];
       // console.log(tileX,tileY,tileLetter,selected);
-      var containsTile = x === tileX && y === tileY
+      var containsTile = (x === tileX && y === tileY);
       if(containsTile){
         console.log("HAVE TILE", x, y)
         squareContents = <Tile letter = {tileLetter} />

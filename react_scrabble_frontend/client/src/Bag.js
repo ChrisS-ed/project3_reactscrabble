@@ -78,7 +78,7 @@ Bag.prototype = {
     }
     for (var i = 0; i < tilesWanted; i++) {
       var newLetter = this.contents.shift();
-      console.log(newLetter);
+      //console.log(newLetter);
       lettersGrabbed.push(newLetter);
     };
     return lettersGrabbed;
