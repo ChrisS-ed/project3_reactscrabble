@@ -1,13 +1,10 @@
 var React = require('react');
 
 var PlayButton = React.createClass({
-  // getInitialState: function() {
-  //   //return {liked: false};
-  // },
 
-  handleClick: function(event) {
-    //this.setState({liked: !this.state.liked});
+  handleClick: function() {
     console.log("CLICKED PLAY BUTTON");
+    this.props.onPlayButtonClick();
   },
 
   render: function() {
@@ -18,11 +15,12 @@ var PlayButton = React.createClass({
 });
 
 var ButtonBox = React.createClass({
+  
   render: function() {
     return (
       <div>
         <h3>ButtonBox</h3>
-        <PlayButton/>
+        <PlayButton onPlayButtonClick={this.props.onPlayButtonClick}/>
       </div>
   )}
 });

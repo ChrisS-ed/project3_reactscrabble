@@ -19721,6 +19721,10 @@
 	    });
 	  },
 	
+	  handlePlayButtonClick: function handlePlayButtonClick() {
+	    console.log("IN GAMEBOX: Clicked play word");
+	  },
+	
 	  render: function render() {
 	    console.log("rendering");
 	    return React.createElement(
@@ -19735,7 +19739,8 @@
 	      React.createElement(PlayBox, {
 	        data: this.state.tilesInPlay,
 	        onSquareClick: this.handleSquareClick }),
-	      React.createElement(ButtonBox, null)
+	      React.createElement(ButtonBox, {
+	        onPlayButtonClick: this.handlePlayButtonClick })
 	    );
 	  }
 	});
@@ -20066,13 +20071,10 @@
 	var PlayButton = React.createClass({
 	  displayName: "PlayButton",
 	
-	  // getInitialState: function() {
-	  //   //return {liked: false};
-	  // },
 	
-	  handleClick: function handleClick(event) {
-	    //this.setState({liked: !this.state.liked});
+	  handleClick: function handleClick() {
 	    console.log("CLICKED PLAY BUTTON");
+	    this.props.onPlayButtonClick();
 	  },
 	
 	  render: function render() {
@@ -20087,6 +20089,7 @@
 	var ButtonBox = React.createClass({
 	  displayName: "ButtonBox",
 	
+	
 	  render: function render() {
 	    return React.createElement(
 	      "div",
@@ -20096,7 +20099,7 @@
 	        null,
 	        "ButtonBox"
 	      ),
-	      React.createElement(PlayButton, null)
+	      React.createElement(PlayButton, { onPlayButtonClick: this.props.onPlayButtonClick })
 	    );
 	  }
 	});

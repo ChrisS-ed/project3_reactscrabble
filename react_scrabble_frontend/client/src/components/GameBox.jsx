@@ -57,6 +57,10 @@ var GameBox = React.createClass({
       });
     },
 
+  handlePlayButtonClick: function() {
+    console.log("IN GAMEBOX: Clicked play word");
+  },
+
   render: function() {
   console.log("rendering");
     return (
@@ -66,7 +70,8 @@ var GameBox = React.createClass({
       <PlayBox 
         data={this.state.tilesInPlay}
         onSquareClick={this.handleSquareClick}/>
-      <ButtonBox/>
+      <ButtonBox
+        onPlayButtonClick={this.handlePlayButtonClick}/>
     </div>
     );
   }
