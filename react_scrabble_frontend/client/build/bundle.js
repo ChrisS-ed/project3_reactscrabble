@@ -19725,6 +19725,10 @@
 	    console.log("IN GAMEBOX: Clicked play word");
 	  },
 	
+	  handleNewTilesButtonClick: function handleNewTilesButtonClick() {
+	    console.log("IN GAMEBOX: Clicked New Tiles");
+	  },
+	
 	  render: function render() {
 	    console.log("rendering");
 	    return React.createElement(
@@ -19740,7 +19744,8 @@
 	        data: this.state.tilesInPlay,
 	        onSquareClick: this.handleSquareClick }),
 	      React.createElement(ButtonBox, {
-	        onPlayButtonClick: this.handlePlayButtonClick })
+	        onPlayButtonClick: this.handlePlayButtonClick,
+	        onNewTilesButtonClick: this.handleNewTilesButtonClick })
 	    );
 	  }
 	});
@@ -20086,6 +20091,24 @@
 	  }
 	});
 	
+	var NewTilesButton = React.createClass({
+	  displayName: "NewTilesButton",
+	
+	
+	  handleClick: function handleClick() {
+	    console.log("CLICKED PLAY BUTTON");
+	    this.props.onNewTilesButtonClick();
+	  },
+	
+	  render: function render() {
+	    return React.createElement(
+	      "button",
+	      { onClick: this.handleClick },
+	      "New tiles"
+	    );
+	  }
+	});
+	
 	var ButtonBox = React.createClass({
 	  displayName: "ButtonBox",
 	
@@ -20099,7 +20122,8 @@
 	        null,
 	        "ButtonBox"
 	      ),
-	      React.createElement(PlayButton, { onPlayButtonClick: this.props.onPlayButtonClick })
+	      React.createElement(PlayButton, { onPlayButtonClick: this.props.onPlayButtonClick }),
+	      React.createElement(NewTilesButton, { onNewTilesButtonClick: this.props.onNewTilesButtonClick })
 	    );
 	  }
 	});

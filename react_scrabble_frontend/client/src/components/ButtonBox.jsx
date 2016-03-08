@@ -14,13 +14,28 @@ var PlayButton = React.createClass({
   }
 });
 
+var NewTilesButton = React.createClass({
+
+  handleClick: function() {
+    console.log("CLICKED PLAY BUTTON");
+    this.props.onNewTilesButtonClick();
+  },
+
+  render: function() {
+    return (
+      <button onClick={this.handleClick}>New tiles</button>
+    );
+  }
+});
+
 var ButtonBox = React.createClass({
-  
+
   render: function() {
     return (
       <div>
         <h3>ButtonBox</h3>
         <PlayButton onPlayButtonClick={this.props.onPlayButtonClick}/>
+        <NewTilesButton onNewTilesButtonClick={this.props.onNewTilesButtonClick}/>
       </div>
   )}
 });
