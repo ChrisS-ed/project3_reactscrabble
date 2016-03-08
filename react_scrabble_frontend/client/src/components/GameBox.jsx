@@ -31,35 +31,6 @@ var GameBox = React.createClass({
     };
   },
 
-  handleRackClick: function(x,y) {
-      console.log("Clicked on Rack X:", x, "Rack Y:", y);
-      console.log("Tiles in play: ", tilesInPlay);
-      //this.selectThisTile(x,y);
-
-      // abort move if square clicked on already contains a tile - make that tile the new selected tile, remove selected status from old tile
-      for (var i = 0; i < tilesInPlay.length; i++) {
-        if (tilesInPlay[i][0] === x && tilesInPlay[i][1] === y) {
-          console.log("Tile already in that position!");
-          this.selectThisTile(tilesInPlay[i][0], tilesInPlay[i][1]);
-          console.log("Tiles in play: ", tilesInPlay);
-          return;
-        }
-      };
-
-      // find tile marked selected true in tilesinplay
-      // change tile's X & Y positions to those of square clicked on
-      for (var i = 0; i < tilesInPlay.length; i++) {
-        if (tilesInPlay[i][3] === true) {
-          tilesInPlay[i][0] = x;
-          tilesInPlay[i][1] = y;
-        }
-      };
-
-      this.setState({
-        tilesInPlay: tilesInPlay
-      });
-  },
-
   handleSquareClick: function(x,y) {
       console.log("Clicked on Board X:", x, "Board Y:", y);
 
@@ -94,7 +65,6 @@ var GameBox = React.createClass({
       <ScoreBox/>
       <PlayBox 
         data={this.state.tilesInPlay}
-        //onRackClick={this.handleRackClick}
         onSquareClick={this.handleSquareClick}/>
       <ButtonBox/>
     </div>

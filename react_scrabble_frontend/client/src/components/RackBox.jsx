@@ -6,7 +6,6 @@ var RackBox = React.createClass({
   handleClick: function(x,y) {
     console.log("CLICK");
     console.log(x,y);
-    //this.props.onRackClick(x,y);
     this.props.onSquareClick(x,y);
   },
 
@@ -16,7 +15,6 @@ var RackBox = React.createClass({
       var tileX = this.props.data[i][0];
       var tileY = this.props.data[i][1];
       var tileLetter = this.props.data[i][2];
-      var selected = this.props.data[i][3];
       var containsTile = (16 === tileX && index === tileY);
       if (containsTile) {
         slotContents = <Tile letter = {tileLetter} />
