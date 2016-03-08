@@ -20059,18 +20059,44 @@
 /* 168 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	var React = __webpack_require__(1);
 	
-	var ButtonBox = React.createClass({
-	  displayName: 'ButtonBox',
+	var PlayButton = React.createClass({
+	  displayName: "PlayButton",
+	
+	  // getInitialState: function() {
+	  //   //return {liked: false};
+	  // },
+	
+	  handleClick: function handleClick(event) {
+	    //this.setState({liked: !this.state.liked});
+	    console.log("CLICKED PLAY BUTTON");
+	  },
 	
 	  render: function render() {
 	    return React.createElement(
-	      'h3',
+	      "button",
+	      { onClick: this.handleClick },
+	      "Play word"
+	    );
+	  }
+	});
+	
+	var ButtonBox = React.createClass({
+	  displayName: "ButtonBox",
+	
+	  render: function render() {
+	    return React.createElement(
+	      "div",
 	      null,
-	      'ButtonBox'
+	      React.createElement(
+	        "h3",
+	        null,
+	        "ButtonBox"
+	      ),
+	      React.createElement(PlayButton, null)
 	    );
 	  }
 	});
