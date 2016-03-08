@@ -19696,12 +19696,36 @@
 	  },
 	
 	  handleRackClick: function handleRackClick(x, y) {
-	    console.log("Rack X:", x, "Rack Y:", y);
-	    this.selectThisTile(x, y);
+	    console.log("Clicked on Rack X:", x, "Rack Y:", y);
+	    console.log("Tiles in play: ", tilesInPlay);
+	    //this.selectThisTile(x,y);
+	
+	    // abort move if square clicked on already contains a tile - make that tile the new selected tile, remove selected status from old tile
+	    for (var i = 0; i < tilesInPlay.length; i++) {
+	      if (tilesInPlay[i][0] === x && tilesInPlay[i][1] === y) {
+	        console.log("Tile already in that position!");
+	        this.selectThisTile(tilesInPlay[i][0], tilesInPlay[i][1]);
+	        console.log("Tiles in play: ", tilesInPlay);
+	        return;
+	      }
+	    };
+	
+	    // find tile marked selected true in tilesinplay
+	    // change tile's X & Y positions to those of square clicked on
+	    for (var i = 0; i < tilesInPlay.length; i++) {
+	      if (tilesInPlay[i][3] === true) {
+	        tilesInPlay[i][0] = x;
+	        tilesInPlay[i][1] = y;
+	      }
+	    };
+	
+	    this.setState({
+	      tilesInPlay: tilesInPlay
+	    });
 	  },
 	
 	  handleSquareClick: function handleSquareClick(x, y) {
-	    console.log("Board X:", x, "Board Y:", y);
+	    console.log("Clicked on Board X:", x, "Board Y:", y);
 	
 	    // abort move if square clicked on already contains a tile - make that tile the new selected tile, remove selected status from old tile
 	    for (var i = 0; i < tilesInPlay.length; i++) {
@@ -19862,32 +19886,14 @@
 	      var tileY = this.props.data[i][1];
 	      var tileLetter = this.props.data[i][2];
 	      var selected = this.props.data[i][3];
-	      // console.log(tileX,tileY,tileLetter,selected);
 	      var containsTile = x === tileX && y === tileY;
 	      if (containsTile) {
-	        console.log("HAVE TILE", x, y);
+	        console.log("BOARD HAS TILE AT: ", x, y);
 	        squareContents = React.createElement(Tile, { letter: tileLetter });
 	        break;
 	      }
-	      // var squareContents = containsTile ?
-	      //     <Tile letter = {tileLetter} />  :
-	      //     null;
-	      // var squareContents = true ?
-	      //     <Tile letter = 'A' />  :
-	      //     null;
 	    };
 	
-	    // var tileX = this.props.tilePosition[0];
-	    // var tileY = this.props.tilePosition[1];
-	    // var tileLetter = this.props.tilePosition[2];
-	    // var selected = this.props.tilePosition[3];
-	    // var squareContents = (x === tileX && y === tileY) ?
-	    //     <Tile letter = {tileLetter}/> :
-	    //     null;
-	    // console.log('rendering square', x, y)
-	    // if(squareContents){
-	    //   console.log('square contents', squareContents)
-	    // }
 	    return React.createElement(
 	      'div',
 	      {
@@ -20008,19 +20014,25 @@
 	  },
 	
 	  renderSlot: function renderSlot(index) {
-	    var tileX = this.props.data[index][0];
-	    var tileY = this.props.data[index][1];
-	    var tileLetter = this.props.data[index][2];
-	    var selected = this.props.data[index][3];
-	
-	    var slotContents = tileX === 16 && tileY === index ? React.createElement(Tile, { letter: tileLetter }) : null;
+	    var slotContents = null;
+	    for (var i = 0; i < this.props.data.length; i++) {
+	      var tileX = this.props.data[i][0];
+	      var tileY = this.props.data[i][1];
+	      var tileLetter = this.props.data[i][2];
+	      var selected = this.props.data[i][3];
+	      var containsTile = 16 === tileX && index === tileY;
+	      if (containsTile) {
+	        slotContents = React.createElement(Tile, { letter: tileLetter });
+	        break;
+	      }
+	    };
 	
 	    return React.createElement(
 	      'div',
 	      { key: index
 	        // seven slots
 	        , style: { width: '14%', height: '20px' },
-	        onClick: this.handleClick.bind(this, tileX, tileY) },
+	        onClick: this.handleClick.bind(this, 16, index) },
 	      React.createElement(
 	        RackSlot,
 	        null,

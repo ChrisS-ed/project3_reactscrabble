@@ -10,20 +10,24 @@ var RackBox = React.createClass({
   },
 
   renderSlot: function(index) {
-    var tileX = this.props.data[index][0];
-    var tileY = this.props.data[index][1];
-    var tileLetter = this.props.data[index][2];
-    var selected = this.props.data[index][3];
-
-    var slotContents = (tileX === 16 && tileY === index) ?
-        <Tile letter = {tileLetter}/> :
-        null;
+    var slotContents = null;
+    for (var i = 0; i < this.props.data.length; i++) {
+      var tileX = this.props.data[i][0];
+      var tileY = this.props.data[i][1];
+      var tileLetter = this.props.data[i][2];
+      var selected = this.props.data[i][3];
+      var containsTile = (16 === tileX && index === tileY);
+      if (containsTile) {
+        slotContents = <Tile letter = {tileLetter} />
+        break
+      }
+    };
 
     return (
       <div key={index}
         // seven slots
         style={{ width: '14%', height: '20px' }}
-        onClick={this.handleClick.bind(this,tileX,tileY)}>
+        onClick={this.handleClick.bind(this,16,index)}>
         <RackSlot>
           {slotContents}
         </RackSlot>
