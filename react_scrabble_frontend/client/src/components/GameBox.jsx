@@ -57,8 +57,37 @@ var GameBox = React.createClass({
       });
     },
 
+  tilesPositionOnBoardValid: function() {
+
+    // filter out tiles from tilesInPlay that are on board instead of rack
+    var onBoard = function(tile) {
+        return tile[0] !== 16;
+    }
+    var tilesOnBoard = tilesInPlay.filter(onBoard);
+    console.log(tilesOnBoard);
+
+    // check at least one letter placed on board
+    if (tilesOnBoard.length === 0) {
+      console.log("Invalid play: no letters placed on board");
+      return;
+    };
+
+    // check tiles placed on board are all in same horizontal line or same vertical line
+    for (var i = 0; i < tilesOnBoard.length; i++) {
+      console.log("tilesOnBoard[i][0] ", tilesOnBoard[i][0]);
+      console.log("tilesOnBoard[0][0] ", tilesOnBoard[0][0]);
+      if ((tilesOnBoard[i][0] !== tilesOnBoard[0][0]) && (tilesOnBoard[i][1] !== tilesOnBoard[0][1])) {
+        console.log("Invalid play: letters not placed in horizontal or vertical line");
+        return;
+      }
+    };
+
+    // check no blank tiles between tiles place on board
+  },
+
   handlePlayButtonClick: function() {
     console.log("IN GAMEBOX: Clicked play word");
+    this.tilesPositionOnBoardValid();
   },
 
   replaceAllTilesInPlay: function() {
