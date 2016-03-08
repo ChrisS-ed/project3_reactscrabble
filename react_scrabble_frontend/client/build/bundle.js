@@ -19666,6 +19666,7 @@
 	var PlayBox = __webpack_require__(161);
 	var ButtonBox = __webpack_require__(168);
 	var Bag = __webpack_require__(169);
+	var bag = new Bag();
 	var tilesInPlay = [];
 	
 	var GameBox = React.createClass({
@@ -19674,7 +19675,6 @@
 	
 	  //get seven letters from bag for initial rack
 	  getInitialState: function getInitialState() {
-	    var bag = new Bag();
 	    var rackTiles = bag.grabTiles(7);
 	    for (var i = 0; i < rackTiles.length; i++) {
 	      tilesInPlay.push([16, i, rackTiles[i], false]);
@@ -19725,8 +19725,20 @@
 	    console.log("IN GAMEBOX: Clicked play word");
 	  },
 	
+	  replaceAllTilesInPlay: function replaceAllTilesInPlay() {
+	    tilesInPlay = [];
+	    var rackTiles = bag.grabTiles(7);
+	    for (var i = 0; i < rackTiles.length; i++) {
+	      tilesInPlay.push([16, i, rackTiles[i], false]);
+	    };
+	    this.setState({
+	      tilesInPlay: tilesInPlay
+	    });
+	  },
+	
 	  handleNewTilesButtonClick: function handleNewTilesButtonClick() {
 	    console.log("IN GAMEBOX: Clicked New Tiles");
+	    this.replaceAllTilesInPlay();
 	  },
 	
 	  render: function render() {

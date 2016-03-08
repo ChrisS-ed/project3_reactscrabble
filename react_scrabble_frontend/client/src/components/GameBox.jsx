@@ -3,13 +3,13 @@ var ScoreBox = require('./ScoreBox.jsx');
 var PlayBox = require('./PlayBox.jsx');
 var ButtonBox = require('./ButtonBox.jsx');
 var Bag = require('./../Bag.js');
+var bag = new Bag();
 var tilesInPlay = [];
 
 var GameBox = React.createClass({
   
   //get seven letters from bag for initial rack
   getInitialState: function(){
-    var bag = new Bag();
     var rackTiles = bag.grabTiles(7);
     for (var i = 0; i < rackTiles.length; i++) {
       tilesInPlay.push([16, i, rackTiles[i], false]);
@@ -61,8 +61,20 @@ var GameBox = React.createClass({
     console.log("IN GAMEBOX: Clicked play word");
   },
 
+  replaceAllTilesInPlay: function() {
+    tilesInPlay = [];
+    var rackTiles = bag.grabTiles(7);
+    for (var i = 0; i < rackTiles.length; i++) {
+      tilesInPlay.push([16, i, rackTiles[i], false]);
+    };
+    this.setState({
+      tilesInPlay: tilesInPlay
+    });
+  },
+
   handleNewTilesButtonClick: function() {
     console.log("IN GAMEBOX: Clicked New Tiles");
+    this.replaceAllTilesInPlay();
   },
 
   render: function() {
