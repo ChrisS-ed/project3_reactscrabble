@@ -6,7 +6,8 @@ var RackBox = React.createClass({
   handleClick: function(x,y) {
     console.log("CLICK");
     console.log(x,y);
-    this.props.onRackClick(x,y);
+    //this.props.onRackClick(x,y);
+    this.props.onSquareClick(x,y);
   },
 
   renderSlot: function(index) {

@@ -19762,9 +19762,9 @@
 	      ),
 	      React.createElement(ScoreBox, null),
 	      React.createElement(PlayBox, {
-	        data: this.state.tilesInPlay,
-	        onRackClick: this.handleRackClick,
-	        onSquareClick: this.handleSquareClick }),
+	        data: this.state.tilesInPlay
+	        //onRackClick={this.handleRackClick}
+	        , onSquareClick: this.handleSquareClick }),
 	      React.createElement(ButtonBox, null)
 	    );
 	  }
@@ -19820,8 +19820,9 @@
 	        data: this.props.data,
 	        onSquareClick: this.props.onSquareClick }),
 	      React.createElement(RackBox, {
-	        data: this.props.data,
-	        onRackClick: this.props.onRackClick })
+	        data: this.props.data
+	        //onRackClick={this.props.onRackClick}
+	        , onSquareClick: this.props.onSquareClick })
 	    );
 	  }
 	});
@@ -20010,7 +20011,8 @@
 	  handleClick: function handleClick(x, y) {
 	    console.log("CLICK");
 	    console.log(x, y);
-	    this.props.onRackClick(x, y);
+	    //this.props.onRackClick(x,y);
+	    this.props.onSquareClick(x, y);
 	  },
 	
 	  renderSlot: function renderSlot(index) {

@@ -94,7 +94,7 @@ var GameBox = React.createClass({
       <ScoreBox/>
       <PlayBox 
         data={this.state.tilesInPlay}
-        onRackClick={this.handleRackClick}
+        //onRackClick={this.handleRackClick}
         onSquareClick={this.handleSquareClick}/>
       <ButtonBox/>
     </div>
