@@ -19825,7 +19825,26 @@
 	      playedTiles: playedTiles
 	    });
 	
-	    // fill empty rack slots with letters from bag
+	    // fill empty rack slots with letters from bag (move remaining letters to start of rack)
+	    var tilesNeeded = 7 - tilesInPlay.length;
+	    var newTiles = bag.grabTiles(tilesNeeded);
+	    var startIndex = tilesInPlay.length;
+	
+	    for (var i = 0; i < tilesInPlay.length; i++) {
+	      tilesInPlay[i][0] = 16;
+	      tilesInPlay[i][1] = i;
+	    };
+	
+	    for (var i = startIndex; i < startIndex + newTiles.length; i++) {
+	      tilesInPlay.push([16, i, newTiles[i - startIndex], false]);
+	    };
+	
+	    messageText = "Word played: new letters available";
+	
+	    this.setState({
+	      tilesInPlay: tilesInPlay,
+	      messageText: messageText
+	    });
 	  },
 	
 	  handlePlayButtonClick: function handlePlayButtonClick() {
