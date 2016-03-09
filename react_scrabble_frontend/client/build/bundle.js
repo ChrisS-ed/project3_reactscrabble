@@ -19742,10 +19742,12 @@
 	      return;
 	    };
 	
-	    // check tiles placed on board are all in same horizontal line or same vertical line
+	    // check tiles placed on board are all in same horizontal line or same vertical line. Also set variable to indicate if word is horizontal or vertical
+	    var horizontalWord = true;
+	    var verticalWord = true;
 	    for (var i = 0; i < tilesOnBoard.length; i++) {
-	      console.log("tilesOnBoard[i][0] ", tilesOnBoard[i][0]);
-	      console.log("tilesOnBoard[0][0] ", tilesOnBoard[0][0]);
+	      // console.log("tilesOnBoard[i][0] ", tilesOnBoard[i][0]);
+	      // console.log("tilesOnBoard[0][0] ", tilesOnBoard[0][0]);
 	      if (tilesOnBoard[i][0] !== tilesOnBoard[0][0] && tilesOnBoard[i][1] !== tilesOnBoard[0][1]) {
 	        console.log("Invalid play: letters not placed in horizontal or vertical line");
 	        this.setState({
@@ -19753,9 +19755,39 @@
 	        });
 	        return;
 	      }
+	      if (tilesOnBoard[i][0] !== tilesOnBoard[0][0]) {
+	        horizontalWord = false;
+	      };
+	      if (tilesOnBoard[i][1] !== tilesOnBoard[0][1]) {
+	        verticalWord = false;
+	      };
 	    };
+	    console.log("Horizontal? ", horizontalWord);
+	    console.log("Vertical? ", verticalWord);
 	
 	    // check no blank tiles between tiles place on board (will need to check if any gaps are filled by existing tile on board)
+	
+	    // sort letters by sequential placing
+	    for (var i = 0; i < tilesOnBoard.length; i++) {
+	      console.log("Before sort, letter: ", i, tilesOnBoard[i][2]);
+	    };
+	    if (horizontalWord) {
+	      var sortedWord = tilesOnBoard.sort(function (a, b) {
+	        return a[1] - b[1];
+	      });
+	    };
+	    if (verticalWord) {
+	      var sortedWord = tilesOnBoard.sort(function (a, b) {
+	        return a[0] - b[0];
+	      });
+	    };
+	    for (var i = 0; i < sortedWord.length; i++) {
+	      console.log("After sort, letter: ", i, sortedWord[i][2]);
+	    };
+	
+	    // check spelling
+	
+	    // place letters on board (playedTiles)
 	  },
 	
 	  handlePlayButtonClick: function handlePlayButtonClick() {
@@ -20039,6 +20071,7 @@
 	      var tileX = this.props.data[i][0];
 	      var tileY = this.props.data[i][1];
 	      var tileLetter = this.props.data[i][2];
+	      //var selected = this.props.data[i][3];
 	      var containsTile = 16 === tileX && index === tileY;
 	      if (containsTile) {
 	        slotContents = React.createElement(Tile, { letter: tileLetter });
