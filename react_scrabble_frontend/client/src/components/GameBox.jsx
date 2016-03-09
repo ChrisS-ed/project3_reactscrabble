@@ -130,6 +130,15 @@ var GameBox = React.createClass({
 
 
     // place letters on board (playedTiles)
+    for (var i = 0; i < sortedWord.length; i++) {
+      playedTiles.push([sortedWord[i][0], sortedWord[i][1], sortedWord[i][2]]);
+    };
+    console.log(playedTiles);
+    this.setState({
+      playedTiles: playedTiles
+    });
+
+    // fill empty rack slots with letters from bag
 
   },
 
