@@ -19668,6 +19668,7 @@
 	var Bag = __webpack_require__(169);
 	var bag = new Bag();
 	var tilesInPlay = [];
+	var playedTiles = [];
 	var messageText = "";
 	
 	var GameBox = React.createClass({
@@ -19680,9 +19681,11 @@
 	    for (var i = 0; i < rackTiles.length; i++) {
 	      tilesInPlay.push([16, i, rackTiles[i], false]);
 	    };
+	    playedTiles = [];
 	    messageText = "Place your letters";
 	    return {
 	      tilesInPlay: tilesInPlay,
+	      playedTiles: playedTiles,
 	      messageText: messageText
 	    };
 	  },
