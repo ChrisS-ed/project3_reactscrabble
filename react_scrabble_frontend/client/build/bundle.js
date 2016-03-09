@@ -19668,6 +19668,7 @@
 	var Bag = __webpack_require__(169);
 	var bag = new Bag();
 	var tilesInPlay = [];
+	var messageText = "";
 	
 	var GameBox = React.createClass({
 	  displayName: 'GameBox',
@@ -19679,8 +19680,10 @@
 	    for (var i = 0; i < rackTiles.length; i++) {
 	      tilesInPlay.push([16, i, rackTiles[i], false]);
 	    };
+	    messageText = "Place your letters";
 	    return {
-	      tilesInPlay: tilesInPlay
+	      tilesInPlay: tilesInPlay,
+	      messageText: messageText
 	    };
 	  },
 	
@@ -19746,7 +19749,7 @@
 	      }
 	    };
 	
-	    // check no blank tiles between tiles place on board
+	    // check no blank tiles between tiles place on board (will need to check if any gaps are filled by existing tile on board)
 	  },
 	
 	  handlePlayButtonClick: function handlePlayButtonClick() {
@@ -19785,6 +19788,7 @@
 	        data: this.state.tilesInPlay,
 	        onSquareClick: this.handleSquareClick }),
 	      React.createElement(ButtonBox, {
+	        message: this.state.messageText,
 	        onPlayButtonClick: this.handlePlayButtonClick,
 	        onNewTilesButtonClick: this.handleNewTilesButtonClick })
 	    );
@@ -20164,7 +20168,12 @@
 	        "ButtonBox"
 	      ),
 	      React.createElement(PlayButton, { onPlayButtonClick: this.props.onPlayButtonClick }),
-	      React.createElement(NewTilesButton, { onNewTilesButtonClick: this.props.onNewTilesButtonClick })
+	      React.createElement(NewTilesButton, { onNewTilesButtonClick: this.props.onNewTilesButtonClick }),
+	      React.createElement(
+	        "p",
+	        null,
+	        this.props.message
+	      )
 	    );
 	  }
 	});

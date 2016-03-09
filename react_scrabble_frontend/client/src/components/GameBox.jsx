@@ -5,6 +5,7 @@ var ButtonBox = require('./ButtonBox.jsx');
 var Bag = require('./../Bag.js');
 var bag = new Bag();
 var tilesInPlay = [];
+var messageText = "";
 
 var GameBox = React.createClass({
   
@@ -14,8 +15,10 @@ var GameBox = React.createClass({
     for (var i = 0; i < rackTiles.length; i++) {
       tilesInPlay.push([16, i, rackTiles[i], false]);
     };
+    messageText = "Place your letters";
     return {
-      tilesInPlay
+      tilesInPlay,
+      messageText
     }
   },
 
@@ -82,7 +85,7 @@ var GameBox = React.createClass({
       }
     };
 
-    // check no blank tiles between tiles place on board
+    // check no blank tiles between tiles place on board (will need to check if any gaps are filled by existing tile on board)
   },
 
   handlePlayButtonClick: function() {
@@ -116,6 +119,7 @@ var GameBox = React.createClass({
         data={this.state.tilesInPlay}
         onSquareClick={this.handleSquareClick}/>
       <ButtonBox
+        message={this.state.messageText}
         onPlayButtonClick={this.handlePlayButtonClick}
         onNewTilesButtonClick={this.handleNewTilesButtonClick}/>
     </div>
