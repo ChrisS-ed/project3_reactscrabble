@@ -128,6 +128,22 @@ var GameBox = React.createClass({
 
     // check spelling
 
+  
+    // remove played letters in sortedWord from tilesInPlay
+    for (var i = tilesInPlay.length-1; i>=0; i--) {
+      var x = tilesInPlay[i][0];
+      var y = tilesInPlay[i][1];
+      console.log(x,y, tilesInPlay[i][2]);
+      for (var j = 0; j < sortedWord.length; j++) {
+        if (x === sortedWord[j][0] && y === sortedWord[j][1]) {
+          console.log("FOUND ONE: ", tilesInPlay[i][2]);
+          tilesInPlay.splice(i,1);
+        }
+      }
+    };
+    console.log("After letter removal: tilesInPlay: ", tilesInPlay);
+    console.log("After letter removal: sortedWord: ", sortedWord);
+
 
     // place letters on board (playedTiles)
     for (var i = 0; i < sortedWord.length; i++) {

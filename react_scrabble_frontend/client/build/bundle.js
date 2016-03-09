@@ -19790,6 +19790,21 @@
 	
 	    // check spelling
 	
+	    // remove played letters in sortedWord from tilesInPlay
+	    for (var i = tilesInPlay.length - 1; i >= 0; i--) {
+	      var x = tilesInPlay[i][0];
+	      var y = tilesInPlay[i][1];
+	      console.log(x, y, tilesInPlay[i][2]);
+	      for (var j = 0; j < sortedWord.length; j++) {
+	        if (x === sortedWord[j][0] && y === sortedWord[j][1]) {
+	          console.log("FOUND ONE: ", tilesInPlay[i][2]);
+	          tilesInPlay.splice(i, 1);
+	        }
+	      }
+	    };
+	    console.log("After letter removal: tilesInPlay: ", tilesInPlay);
+	    console.log("After letter removal: sortedWord: ", sortedWord);
+	
 	    // place letters on board (playedTiles)
 	    for (var i = 0; i < sortedWord.length; i++) {
 	      playedTiles.push([sortedWord[i][0], sortedWord[i][1], sortedWord[i][2]]);
@@ -19949,6 +19964,8 @@
 	
 	  renderSquare: function renderSquare(x, y, index) {
 	    var squareContents = null;
+	
+	    // render tile in play
 	    for (var i = 0; i < this.props.data.length; i++) {
 	      var tileX = this.props.data[i][0];
 	      var tileY = this.props.data[i][1];
@@ -19962,6 +19979,7 @@
 	      }
 	    };
 	
+	    // render played tile
 	    for (var i = 0; i < this.props.playedTiles.length; i++) {
 	      var tileX = this.props.playedTiles[i][0];
 	      var tileY = this.props.playedTiles[i][1];

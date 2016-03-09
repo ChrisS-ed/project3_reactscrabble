@@ -13,6 +13,8 @@ var Board = React.createClass({
 
   renderSquare: function(x,y,index) {
     var squareContents = null;
+
+    // render tile in play
     for (var i = 0; i < this.props.data.length; i++) {
       var tileX = this.props.data[i][0];
       var tileY = this.props.data[i][1];
@@ -26,6 +28,7 @@ var Board = React.createClass({
       }
     };
 
+    // render played tile
     for (var i = 0; i < this.props.playedTiles.length; i++) {
       var tileX = this.props.playedTiles[i][0];
       var tileY = this.props.playedTiles[i][1];
