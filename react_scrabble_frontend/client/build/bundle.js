@@ -19699,6 +19699,9 @@
 	        tilesInPlay[i][3] = false;
 	      }
 	    };
+	    this.setState({
+	      messageText: "Tile selected"
+	    });
 	  },
 	
 	  handleSquareClick: function handleSquareClick(x, y) {
@@ -19734,7 +19737,8 @@
 	    };
 	
 	    this.setState({
-	      tilesInPlay: tilesInPlay
+	      tilesInPlay: tilesInPlay,
+	      messageText: ""
 	    });
 	  },
 	
@@ -19859,7 +19863,8 @@
 	      tilesInPlay.push([16, i, rackTiles[i], false]);
 	    };
 	    this.setState({
-	      tilesInPlay: tilesInPlay
+	      tilesInPlay: tilesInPlay,
+	      messageText: "Pulled new letters from bag"
 	    });
 	  },
 	

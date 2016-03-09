@@ -35,6 +35,9 @@ var GameBox = React.createClass({
         tilesInPlay[i][3] = false;
       }
     };
+    this.setState({
+      messageText: "Tile selected"
+    });
   },
 
   handleSquareClick: function(x,y) {
@@ -70,7 +73,8 @@ var GameBox = React.createClass({
       };
 
       this.setState({
-        tilesInPlay: tilesInPlay
+        tilesInPlay: tilesInPlay,
+        messageText: ""
       });
     },
 
@@ -200,7 +204,8 @@ var GameBox = React.createClass({
       tilesInPlay.push([16, i, rackTiles[i], false]);
     };
     this.setState({
-      tilesInPlay: tilesInPlay
+      tilesInPlay: tilesInPlay,
+      messageText: "Pulled new letters from bag"
     });
   },
 
