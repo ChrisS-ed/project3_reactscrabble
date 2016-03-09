@@ -119,7 +119,7 @@ var GameBox = React.createClass({
   console.log("rendering");
     return (
     <div>
-      <h2>GameBox</h2>
+      <h2>Scrabble Solitaire</h2>
       <ScoreBox/>
       <PlayBox 
         data={this.state.tilesInPlay}

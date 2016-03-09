@@ -2,7 +2,7 @@ var React = require('react');
 
 var ScoreBox = React.createClass({
   render: function() {
-    return <h3>ScoreBox</h3>
+    return <h3>Score:</h3>
   }
 });
 

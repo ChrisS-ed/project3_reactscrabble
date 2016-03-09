@@ -6,7 +6,6 @@ var PlayBox = React.createClass({
   render: function() {
     return (
       <div>
-        <h3>PlayBox</h3>
         <BoardBox
           data={this.props.data}
           onSquareClick={this.props.onSquareClick}/>

@@ -32,8 +32,9 @@ var ButtonBox = React.createClass({
 
   render: function() {
     return (
-      <div>
-        <h3>ButtonBox</h3>
+      <div style={
+        {marginTop: '15px'}
+      }>
         <PlayButton onPlayButtonClick={this.props.onPlayButtonClick}/>
         <NewTilesButton onNewTilesButtonClick={this.props.onNewTilesButtonClick}/>
         <p>{this.props.message}</p>

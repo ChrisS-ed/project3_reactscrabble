@@ -19787,7 +19787,7 @@
 	      React.createElement(
 	        'h2',
 	        null,
-	        'GameBox'
+	        'Scrabble Solitaire'
 	      ),
 	      React.createElement(ScoreBox, null),
 	      React.createElement(PlayBox, {
@@ -19818,7 +19818,7 @@
 	    return React.createElement(
 	      'h3',
 	      null,
-	      'ScoreBox'
+	      'Score:'
 	    );
 	  }
 	});
@@ -19842,11 +19842,6 @@
 	    return React.createElement(
 	      'div',
 	      null,
-	      React.createElement(
-	        'h3',
-	        null,
-	        'PlayBox'
-	      ),
 	      React.createElement(BoardBox, {
 	        data: this.props.data,
 	        onSquareClick: this.props.onSquareClick }),
@@ -19875,13 +19870,7 @@
 	    return React.createElement(
 	      'div',
 	      null,
-	      React.createElement(
-	        'h4',
-	        null,
-	        'BoardBox'
-	      ),
 	      React.createElement(Board, {
-	        tilePosition: [2, 2, "A", false],
 	        data: this.props.data,
 	        onSquareClick: this.props.onSquareClick })
 	    );
@@ -20167,12 +20156,7 @@
 	  render: function render() {
 	    return React.createElement(
 	      "div",
-	      null,
-	      React.createElement(
-	        "h3",
-	        null,
-	        "ButtonBox"
-	      ),
+	      { style: { marginTop: '15px' } },
 	      React.createElement(PlayButton, { onPlayButtonClick: this.props.onPlayButtonClick }),
 	      React.createElement(NewTilesButton, { onNewTilesButtonClick: this.props.onNewTilesButtonClick }),
 	      React.createElement(
