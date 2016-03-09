@@ -72,6 +72,9 @@ var GameBox = React.createClass({
     // check at least one letter placed on board
     if (tilesOnBoard.length === 0) {
       console.log("Invalid play: no letters placed on board");
+      this.setState({
+        messageText: "Invalid play: no letters placed on board"
+      });
       return;
     };
 
@@ -81,6 +84,9 @@ var GameBox = React.createClass({
       console.log("tilesOnBoard[0][0] ", tilesOnBoard[0][0]);
       if ((tilesOnBoard[i][0] !== tilesOnBoard[0][0]) && (tilesOnBoard[i][1] !== tilesOnBoard[0][1])) {
         console.log("Invalid play: letters not placed in horizontal or vertical line");
+        this.setState({
+          messageText: "Invalid play: letters not placed in horizontal or vertical line"
+        });
         return;
       }
     };
