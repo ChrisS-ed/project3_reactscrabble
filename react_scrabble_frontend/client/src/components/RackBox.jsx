@@ -42,9 +42,9 @@ var RackBox = React.createClass({
     return (
       <div style={{
         marginTop: '20px',
-        width: '100%',
+        width: '50%',
         height: '100%',
-        display: 'block-inline',
+        display: 'flex'
       }}>
       {slots}
       </div>

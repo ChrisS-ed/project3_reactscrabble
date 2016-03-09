@@ -6,7 +6,7 @@ var RackSlot = React.createClass({
       <div style={
         { backgroundColor: 'brown', 
           border: '2px solid black',
-          width: '100%',
+          width: '50px',
           minHeight: '20px' }
         }> 
         {this.props.children}

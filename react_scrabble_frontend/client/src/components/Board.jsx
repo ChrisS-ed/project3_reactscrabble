@@ -49,7 +49,7 @@ var Board = React.createClass({
     }
     return (
       <div style={{
-        width: '100%',
+        width: '40%',
         height: '100%',
         display: 'flex',
         flexWrap: 'wrap'

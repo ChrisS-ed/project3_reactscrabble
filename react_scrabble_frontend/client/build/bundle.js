@@ -19941,7 +19941,7 @@
 	    return React.createElement(
 	      'div',
 	      { style: {
-	          width: '100%',
+	          width: '40%',
 	          height: '100%',
 	          display: 'flex',
 	          flexWrap: 'wrap'
@@ -20069,9 +20069,9 @@
 	      'div',
 	      { style: {
 	          marginTop: '20px',
-	          width: '100%',
+	          width: '50%',
 	          height: '100%',
-	          display: 'block-inline'
+	          display: 'flex'
 	        } },
 	      slots
 	    );
@@ -20096,7 +20096,7 @@
 	      'div',
 	      { style: { backgroundColor: 'brown',
 	          border: '2px solid black',
-	          width: '100%',
+	          width: '50px',
 	          minHeight: '20px' } },
 	      this.props.children
 	    );
