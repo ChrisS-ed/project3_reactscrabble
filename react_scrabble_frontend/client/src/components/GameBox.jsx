@@ -40,11 +40,22 @@ var GameBox = React.createClass({
   handleSquareClick: function(x,y) {
       console.log("Clicked on Board X:", x, "Board Y:", y);
 
-      // abort move if square clicked on already contains a tile - make that tile the new selected tile, remove selected status from old tile
+      // abort move if square clicked on already contains a tile in play - make that tile the new selected tile, remove selected status from previous tile
       for (var i = 0; i < tilesInPlay.length; i++) {
         if (tilesInPlay[i][0] === x && tilesInPlay[i][1] === y) {
           console.log("Tile already in that position!");
           this.selectThisTile(tilesInPlay[i][0], tilesInPlay[i][1]);
+          return;
+        }
+      };
+
+      // abort move if square clicked on already contains a tile in a played word
+      for (var i = 0; i < playedTiles.length; i++) {
+        if (playedTiles[i][0] === x && playedTiles[i][1] === y) {
+          console.log("Tile already in that position!");
+          this.setState({
+            messageText: "Invalid move: tile already on that square!"
+          });
           return;
         }
       };
