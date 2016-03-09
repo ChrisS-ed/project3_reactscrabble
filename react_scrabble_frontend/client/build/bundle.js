@@ -19836,6 +19836,7 @@
 	      React.createElement(ScoreBox, null),
 	      React.createElement(PlayBox, {
 	        data: this.state.tilesInPlay,
+	        playedTiles: this.state.playedTiles,
 	        onSquareClick: this.handleSquareClick }),
 	      React.createElement(ButtonBox, {
 	        message: this.state.messageText,
@@ -19888,6 +19889,7 @@
 	      null,
 	      React.createElement(BoardBox, {
 	        data: this.props.data,
+	        playedTiles: this.props.playedTiles,
 	        onSquareClick: this.props.onSquareClick }),
 	      React.createElement(RackBox, {
 	        data: this.props.data,
@@ -19916,6 +19918,7 @@
 	      null,
 	      React.createElement(Board, {
 	        data: this.props.data,
+	        playedTiles: this.props.playedTiles,
 	        onSquareClick: this.props.onSquareClick })
 	    );
 	  }
@@ -19932,6 +19935,7 @@
 	var React = __webpack_require__(1);
 	var Square = __webpack_require__(164);
 	var Tile = __webpack_require__(165);
+	var PlayedTile = __webpack_require__(170);
 	
 	var Board = React.createClass({
 	  displayName: 'Board',
@@ -19954,6 +19958,18 @@
 	      if (containsTile) {
 	        console.log("BOARD HAS TILE AT: ", x, y);
 	        squareContents = React.createElement(Tile, { letter: tileLetter });
+	        break;
+	      }
+	    };
+	
+	    for (var i = 0; i < this.props.playedTiles.length; i++) {
+	      var tileX = this.props.playedTiles[i][0];
+	      var tileY = this.props.playedTiles[i][1];
+	      var tileLetter = this.props.playedTiles[i][2];
+	      var containsTile = x === tileX && y === tileY;
+	      if (containsTile) {
+	        console.log("BOARD HAS TILE AT: ", x, y);
+	        squareContents = React.createElement(PlayedTile, { letter: tileLetter });
 	        break;
 	      }
 	    };
@@ -20289,6 +20305,37 @@
 	// console.log(bag.contents.length);
 	
 	module.exports = Bag;
+
+/***/ },
+/* 170 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var React = __webpack_require__(1);
+	
+	var PlayedTile = React.createClass({
+	  displayName: 'PlayedTile',
+	
+	
+	  render: function render() {
+	    var letter = this.props.letter;
+	    return React.createElement(
+	      'div',
+	      { style: { backgroundColor: 'white',
+	          color: 'black',
+	          width: '50%',
+	          height: '50%' } },
+	      React.createElement(
+	        'span',
+	        null,
+	        letter
+	      )
+	    );
+	  }
+	});
+	
+	module.exports = PlayedTile;
 
 /***/ }
 /******/ ]);

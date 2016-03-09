@@ -171,6 +171,7 @@ var GameBox = React.createClass({
       <ScoreBox/>
       <PlayBox 
         data={this.state.tilesInPlay}
+        playedTiles={this.state.playedTiles}
         onSquareClick={this.handleSquareClick}/>
       <ButtonBox
         message={this.state.messageText}

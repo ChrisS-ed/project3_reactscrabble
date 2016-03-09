@@ -1,6 +1,7 @@
 var React = require('react');
 var Square = require('./Square.jsx');
 var Tile = require('./Tile.jsx');
+var PlayedTile = require('./PlayedTile.jsx');
 
 var Board = React.createClass({
 
@@ -21,6 +22,18 @@ var Board = React.createClass({
       if (containsTile) {
         console.log("BOARD HAS TILE AT: ", x, y)
         squareContents = <Tile letter = {tileLetter} />
+        break
+      }
+    };
+
+    for (var i = 0; i < this.props.playedTiles.length; i++) {
+      var tileX = this.props.playedTiles[i][0];
+      var tileY = this.props.playedTiles[i][1];
+      var tileLetter = this.props.playedTiles[i][2];
+      var containsTile = (x === tileX && y === tileY);
+      if (containsTile) {
+        console.log("BOARD HAS TILE AT: ", x, y)
+        squareContents = <PlayedTile letter = {tileLetter} />
         break
       }
     };

@@ -7,6 +7,7 @@ var BoardBox = React.createClass({
       <div>
         <Board 
           data={this.props.data}
+          playedTiles={this.props.playedTiles}
           onSquareClick={this.props.onSquareClick}/>
       </div>
       )

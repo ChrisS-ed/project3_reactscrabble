@@ -8,6 +8,7 @@ var PlayBox = React.createClass({
       <div>
         <BoardBox
           data={this.props.data}
+          playedTiles={this.props.playedTiles}
           onSquareClick={this.props.onSquareClick}/>
         <RackBox
           data={this.props.data}
