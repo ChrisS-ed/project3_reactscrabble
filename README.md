@@ -2,7 +2,7 @@
 
 <B>CodeClan course: project 3</B>
 
-<B>Aim of project:</B> to improve understanding and gain experience of React by using it to create a solitaire Scrabble game.
+<B>Aim of project:</B> to improve understanding and gain experience of the React JavaScript library by using it to create a solitaire Scrabble game.
 
 The game uses React and Node.js to display the board and to deal with the changing state of the tiles on the board and letter tray as the player places and moves them.
 
